@@ -2114,6 +2114,7 @@ GameObject:
   - component: {fileID: 1642069687}
   - component: {fileID: 1642069688}
   - component: {fileID: 1642069689}
+  - component: {fileID: 1642069690}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -2174,13 +2175,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2614423652114015647, guid: bab0b57d225fdf34593d8883def8d6fc,
+  m_Sprite: {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.27}
+  m_Size: {x: 18, y: 28.444445}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2198,6 +2199,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4e6e441141e844b5e8f44793dfba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1642069690
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642069686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1695299372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,23 +2250,23 @@ Transform:
   - {fileID: 2025624819}
   - {fileID: 1000100652}
   - {fileID: 1846294028}
-  - {fileID: 1233936659}
+  - {fileID: 912751151}
   - {fileID: 1344251932}
   - {fileID: 1772767948}
   - {fileID: 1999619624}
+  - {fileID: 1233936659}
   - {fileID: 375376932}
   - {fileID: 397264270}
   - {fileID: 318183932}
   - {fileID: 1719269957}
-  - {fileID: 912751151}
   - {fileID: 1013189055}
   - {fileID: 555577792}
   - {fileID: 190177336}
   - {fileID: 383013893}
   - {fileID: 2119540061}
   - {fileID: 358224417}
-  - {fileID: 671945374}
   - {fileID: 1976231935}
+  - {fileID: 671945374}
   - {fileID: 560241629}
   - {fileID: 1073688421}
   - {fileID: 1055020651}
@@ -2696,6 +2716,7 @@ GameObject:
   - component: {fileID: 1893634711}
   - component: {fileID: 1893634710}
   - component: {fileID: 1893634712}
+  - component: {fileID: 1893634714}
   m_Layer: 0
   m_Name: Armie
   m_TagString: Untagged
@@ -2753,8 +2774,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b156e890aaeafc440b1757d67649493a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 1642069688}
-  animator: {fileID: 0}
+  simpleSprite: {fileID: 0}
+--- !u!95 &1893634714
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893634709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6965d9704dc76b44b8720608796c9337, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1976231935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 7119d524d94602444a5e82e1eba808c7,

@@ -3,30 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SpriteLoop
-
 public class Player : MonoBehaviour
 {
     protected NavMeshAgent agent;
-    public SpriteRenderer sr;
     public Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse button down");
             Vector3 target;
             if (GetMouseTarget(out target))
             {
-                Debug.Log("got target");
                 agent.SetDestination(target);
             }
+        }
+
+        if (agent.hasPath)
+        {
+            animator.SetBool("walking", true);
+        } else
+        {
+            animator.SetBool("walking", false);
         }
     }
 
@@ -38,7 +42,6 @@ public class Player : MonoBehaviour
         Debug.Log(ray.ToString());
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            Debug.Log("got hit");
             target = hit.point;
             return true;
         } else {

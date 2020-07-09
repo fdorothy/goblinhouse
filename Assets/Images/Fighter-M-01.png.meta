@@ -5,6 +5,81 @@ TextureImporter:
   - first:
       213: 2614423652114015647
     second: Fighter-M-01_0
+  - first:
+      213: 3632286854737133741
+    second: Fighter-M-01_0
+  - first:
+      213: -6073305170758790773
+    second: Fighter-M-01_1
+  - first:
+      213: -398742242201625872
+    second: Fighter-M-01_2
+  - first:
+      213: -1153848580903613299
+    second: Fighter-M-01_3
+  - first:
+      213: 7792622208620131357
+    second: Fighter-M-01_4
+  - first:
+      213: 8920890581455152053
+    second: Fighter-M-01_5
+  - first:
+      213: -1102851626724033262
+    second: Fighter-M-01_6
+  - first:
+      213: -5698233408492342923
+    second: Fighter-M-01_7
+  - first:
+      213: -8685761280882076349
+    second: Fighter-M-01_8
+  - first:
+      213: 3720753464592173724
+    second: Fighter-M-01_9
+  - first:
+      213: 7927900748212217308
+    second: Fighter-M-01_10
+  - first:
+      213: 2098671052308492714
+    second: Fighter-M-01_11
+  - first:
+      213: 4481936179573616239
+    second: Fighter-M-01_12
+  - first:
+      213: -999633175491603504
+    second: Fighter-M-01_1
+  - first:
+      213: 9114281941226339540
+    second: Fighter-M-01_2
+  - first:
+      213: 8077066022711715840
+    second: Fighter-M-01_3
+  - first:
+      213: -1580484365005398167
+    second: Fighter-M-01_4
+  - first:
+      213: 8888688853172597800
+    second: Fighter-M-01_5
+  - first:
+      213: 8734610465457826750
+    second: Fighter-M-01_6
+  - first:
+      213: 4916495228355288680
+    second: Fighter-M-01_7
+  - first:
+      213: -7456536063186402104
+    second: Fighter-M-01_8
+  - first:
+      213: -5602270189043264998
+    second: Fighter-M-01_9
+  - first:
+      213: 9130611746318315330
+    second: Fighter-M-01_10
+  - first:
+      213: -6122924504791927321
+    second: Fighter-M-01_11
+  - first:
+      213: 1465824143360378761
+    second: Fighter-M-01_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,19 +168,271 @@ TextureImporter:
       name: Fighter-M-01_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 32
-        width: 18
-        height: 27
-      alignment: 9
+        x: 6
+        y: 96
+        width: 13
+        height: 26
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f95a2a4b57c484420800000000000000
-      internalID: 2614423652114015647
+      spriteID: da08de256a9786230800000000000000
+      internalID: 3632286854737133741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 96
+        width: 18
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d390255ce69022f0800000000000000
+      internalID: -999633175491603504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 96
+        width: 13
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dcbd81d22f6c7e70800000000000000
+      internalID: 9114281941226339540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 81
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008eb17e0c0871070800000000000000
+      internalID: 8077066022711715840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 64
+        width: 10
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f5bc208ddf01ae0800000000000000
+      internalID: -1580484365005398167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_5
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 64
+        width: 10
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824b35cea67fa5b70800000000000000
+      internalID: 8888688853172597800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_6
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 64
+        width: 10
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbe50db0f1973970800000000000000
+      internalID: 8734610465457826750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 32
+        width: 14
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e150a8c56ea3440800000000000000
+      internalID: 4916495228355288680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 32
+        width: 18
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c482eaf4ff058890800000000000000
+      internalID: -7456536063186402104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_9
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 32
+        width: 14
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12d056f1fcb042b0800000000000000
+      internalID: -5602270189043264998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_10
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 10
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24fef49d10376be70800000000000000
+      internalID: 9130611746318315330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_11
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 10
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5b7518a90070ba0800000000000000
+      internalID: -6122924504791927321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fighter-M-01_12
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 10
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987cf28ca47a75410800000000000000
+      internalID: 1465824143360378761
       vertices: []
       indices: 
       edges: []
