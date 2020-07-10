@@ -2159,6 +2159,7 @@ GameObject:
   - component: {fileID: 1642069688}
   - component: {fileID: 1642069689}
   - component: {fileID: 1642069691}
+  - component: {fileID: 1642069690}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -2222,7 +2223,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 18, y: 28.444445}
@@ -2243,6 +2244,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4e6e441141e844b5e8f44793dfba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1642069690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642069686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90b0f4af2287244dba0f0280183cc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  northIdle:
+  - {fileID: -6073305170758790773, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  eastIdle:
+  - {fileID: 8920890581455152053, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  southIdle:
+  - {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  westIdle:
+  - {fileID: 2098671052308492714, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  northWalk:
+  - {fileID: 2614423652114015647, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: -398742242201625872, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  eastWalk:
+  - {fileID: 7792622208620131357, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: -1102851626724033262, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  southWalk:
+  - {fileID: -5698233408492342923, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 3720753464592173724, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  westWalk:
+  - {fileID: 7927900748212217308, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 4481936179573616239, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  facing: 2
+  walking: 0
 --- !u!114 &1642069691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,15 +2290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688afa7825bfaac4396a75c207806a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequences:
-  - name: idle
-    sprites:
-    - {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  - name: walk
-    sprites:
-    - {fileID: -5698233408492342923, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-    - {fileID: 3720753464592173724, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  sequence: idle
+  sequences: []
+  sequence: 
   period: 1
 --- !u!1 &1695299372
 GameObject:
@@ -2820,7 +2848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b156e890aaeafc440b1757d67649493a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipbook: {fileID: 1642069691}
+  flipbook: {fileID: 1642069690}
 --- !u!4 &1976231935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 7119d524d94602444a5e82e1eba808c7,

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     protected NavMeshAgent agent;
-    public Flipbook flipbook;
+    public CharacterFlipbook flipbook;
 
     void Start()
     {
@@ -26,10 +26,11 @@ public class Player : MonoBehaviour
 
         if (agent.hasPath)
         {
-            flipbook.PlaySequence("walk");
+            flipbook.CalculateFacing(agent.velocity);
+            flipbook.walking = true;
         } else
         {
-            flipbook.PlaySequence("idle");
+            flipbook.walking = false;
         }
     }
 

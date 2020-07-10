@@ -16,7 +16,7 @@ public class Flipbook : MonoBehaviour
     public int period = 1;
 
     private SpriteRenderer sr;
-    private Dictionary<string, FlipbookSequence> sequenceLookup;
+    private Dictionary<string, FlipbookSequence> sequenceLookup = new Dictionary<string, FlipbookSequence>();
     private int ticks = 0;
     private int currentFrame = 0;
     private FlipbookSequence currentSequence;
@@ -25,9 +25,8 @@ public class Flipbook : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sequenceLookup = new Dictionary<string, FlipbookSequence>();
         ticks = period;
-        BuildSequenceLookup();
+        BuildSequenceLookup(false);
         if (sequence != "" && sequenceLookup.ContainsKey(sequence))
         {
             currentSequence = sequenceLookup[sequence];
@@ -42,13 +41,22 @@ public class Flipbook : MonoBehaviour
         FlipbookManager.singleton.UnregisterFlipbook(this.name);
     }
 
-    public void BuildSequenceLookup()
+    public void BuildSequenceLookup(bool rebuild = true)
     {
-        sequenceLookup.Clear();
+        if (rebuild)
+            sequenceLookup.Clear();
         foreach (FlipbookSequence sequence in sequences)
         {
             sequenceLookup[sequence.name] = sequence;
         }
+    }
+
+    public void AddSequence(string name, Sprite[] sprites)
+    {
+        FlipbookSequence seq = new FlipbookSequence();
+        seq.name = name;
+        seq.sprites = sprites;
+        sequenceLookup[name] = seq;
     }
 
     public void PlaySequence(string sequence, bool restart = false)
