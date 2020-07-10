@@ -1,0 +1,80 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class FlipbookSequence
+{
+    public string name;
+    public Sprite[] sprites;
+}
+
+public class Flipbook : MonoBehaviour
+{
+    public FlipbookSequence[] sequences;
+    public string sequence = "";
+    public int period = 1;
+
+    private SpriteRenderer sr;
+    private Dictionary<string, FlipbookSequence> sequenceLookup;
+    private int ticks = 0;
+    private int currentFrame = 0;
+    private FlipbookSequence currentSequence;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        sequenceLookup = new Dictionary<string, FlipbookSequence>();
+        ticks = period;
+        BuildSequenceLookup();
+        if (sequence != "" && sequenceLookup.ContainsKey(sequence))
+        {
+            currentSequence = sequenceLookup[sequence];
+            if (currentSequence.sprites.Length > 0)
+                sr.sprite = currentSequence.sprites[0];
+        }
+        FlipbookManager.singleton.RegisterFlipbook(this);
+    }
+
+    private void OnDestroy()
+    {
+        FlipbookManager.singleton.UnregisterFlipbook(this.name);
+    }
+
+    public void BuildSequenceLookup()
+    {
+        sequenceLookup.Clear();
+        foreach (FlipbookSequence sequence in sequences)
+        {
+            sequenceLookup[sequence.name] = sequence;
+        }
+    }
+
+    public void PlaySequence(string sequence, bool restart = false)
+    {
+        if (!restart && sequence.Equals(this.sequence))
+            return;
+        this.sequence = sequence;
+        if (sequenceLookup.ContainsKey(sequence))
+        {
+            currentSequence = sequenceLookup[sequence];
+            currentFrame = 0;
+            ticks = 0;
+        }
+    }
+
+    public void UpdateFrame()
+    {
+        if (currentSequence == null || currentSequence.sprites.Length == 0)
+            return;
+        ticks -= 1;
+        if (ticks <= 0)
+        {
+            sr.sprite = currentSequence.sprites[currentFrame++];
+            if (currentFrame >= currentSequence.sprites.Length)
+                currentFrame = 0;
+            ticks = period;
+        }
+    }
+}

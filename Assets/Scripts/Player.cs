@@ -6,12 +6,11 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     protected NavMeshAgent agent;
-    public Animator animator;
+    public Flipbook flipbook;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,10 +26,10 @@ public class Player : MonoBehaviour
 
         if (agent.hasPath)
         {
-            animator.SetBool("walking", true);
+            flipbook.PlaySequence("walk");
         } else
         {
-            animator.SetBool("walking", false);
+            flipbook.PlaySequence("idle");
         }
     }
 
