@@ -45,7 +45,7 @@ public class ClickableManager : MonoBehaviour
         if (cursorLookup.ContainsKey(type))
         {
             CursorVariant cursor = cursorLookup[type];
-            Cursor.SetCursor(cursor.texture, cursor.hotSpot, CursorMode.Auto);
+            Cursor.SetCursor(cursor.texture, cursor.hotSpot, CursorMode.ForceSoftware);
             hoverToast.SetText(hoverText);
         }
         else
@@ -79,7 +79,7 @@ public class ClickableManager : MonoBehaviour
     {
         Debug.Log("taking action on clickable" + clickable.name);
         lastClicked = null;
-        hoverToast.Shake();
+        hoverToast.ClearText();
     }
 
     public void Update()

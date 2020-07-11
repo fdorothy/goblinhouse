@@ -18,29 +18,28 @@ public class Toast : MonoBehaviour
 
     public void SetText(string text)
     {
-        KillTweeners();
         this.text.text = text;
-        tweener = panel.DOFade(1.0f, 1.0f);
+        PushTween(() => tweener = panel.DOFade(1.0f, 0.25f));
     }
 
-    public void KillTweeners()
+    public void PushTween(TweenCallback action)
     {
-        if (tweener != null)
+        if (tweener != null && tweener.IsPlaying())
         {
-            tweener.Kill();
-            tweener = null;
+            tweener.OnComplete(action);
+        } else
+        {
+            action.Invoke();
         }
     }
 
     public void Shake()
     {
-        panel.GetComponent<RectTransform>().DOShakeAnchorPos(0.25f, 10, 100);
+        PushTween(() => tweener = panel.GetComponent<RectTransform>().DOPunchAnchorPos(new Vector2(0, 5), 0.25f, 0));
     }
 
     public void ClearText()
     {
-        KillTweeners();
-        tweener = panel.DOFade(0.0f, 1.0f);
-        tweener.OnComplete(() => text.text = "");
+        PushTween(() => tweener = panel.DOFade(0.0f, 0.25f).OnComplete(() => text.text = ""));
     }
 }
