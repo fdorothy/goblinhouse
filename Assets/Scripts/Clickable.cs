@@ -11,9 +11,9 @@ public class Clickable : MonoBehaviour
     void OnMouseEnter()
     {
         if (enabled)
-            ClickableManager.singleton.SetCursor(type);
+            ClickableManager.singleton.SetCursor(type, title);
         else
-            ClickableManager.singleton.SetCursor(CursorType.NO);
+            ClickableManager.singleton.SetCursor(CursorType.NO, title);
     }
 
     void OnMouseExit()

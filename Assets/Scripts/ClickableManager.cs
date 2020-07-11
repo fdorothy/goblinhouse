@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CursorType
 {
@@ -21,6 +22,7 @@ public class ClickableManager : MonoBehaviour
     protected Dictionary<CursorType, CursorVariant> cursorLookup;
     public Clickable lastClicked;
     public Player player;
+    public Toast hoverToast;
     public static ClickableManager singleton;
 
     ClickableManager()
@@ -38,12 +40,13 @@ public class ClickableManager : MonoBehaviour
         }
     }
 
-    public void SetCursor(CursorType type)
+    public void SetCursor(CursorType type, string hoverText)
     {
         if (cursorLookup.ContainsKey(type))
         {
             CursorVariant cursor = cursorLookup[type];
             Cursor.SetCursor(cursor.texture, cursor.hotSpot, CursorMode.Auto);
+            hoverToast.SetText(hoverText);
         }
         else
         {
@@ -54,12 +57,14 @@ public class ClickableManager : MonoBehaviour
     public void ClearCursor()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        hoverToast.ClearText();
     }
 
     public void OnClick(Clickable clickable)
     {
         Debug.Log("clicked on " + clickable.name);
         lastClicked = clickable;
+        hoverToast.Shake();
         if (IsCloseEnough())
         {
             TakeAction(lastClicked);
@@ -74,6 +79,7 @@ public class ClickableManager : MonoBehaviour
     {
         Debug.Log("taking action on clickable" + clickable.name);
         lastClicked = null;
+        hoverToast.Shake();
     }
 
     public void Update()
