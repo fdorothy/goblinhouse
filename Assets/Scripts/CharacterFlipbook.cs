@@ -75,6 +75,5 @@ public class CharacterFlipbook : MonoBehaviour
             else
                 facing = CharacterFacing.WEST;
         }
-        Debug.Log(facing);
     }
 }

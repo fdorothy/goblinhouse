@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
             Vector3 target;
             if (GetMouseTarget(out target))
             {
-                agent.SetDestination(target);
+                SetDestination(target);
+                ClickableManager.singleton.ClearLastClicked();
             }
         }
 
@@ -28,10 +29,16 @@ public class Player : MonoBehaviour
         {
             flipbook.CalculateFacing(agent.velocity);
             flipbook.walking = true;
-        } else
+        }
+        else
         {
             flipbook.walking = false;
         }
+    }
+
+    public void SetDestination(Vector3 target)
+    {
+        agent.SetDestination(target);
     }
 
     public bool GetMouseTarget(out Vector3 target)
@@ -39,14 +46,16 @@ public class Player : MonoBehaviour
         int walkableMask = 1 << NavMesh.GetAreaFromName("Walkable");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Debug.Log(ray.ToString());
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            target = hit.point;
-            return true;
-        } else {
-            target = Vector3.zero;
-            return false;
+            // don't walk towards clickable objects
+            if (hit.transform.gameObject.tag != "Clickable")
+            {
+                target = hit.point;
+                return true;
+            }
         }
+        target = Vector3.zero;
+        return false;
     }
 }
