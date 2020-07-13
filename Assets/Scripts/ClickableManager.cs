@@ -80,6 +80,7 @@ public class ClickableManager : MonoBehaviour
         Debug.Log("taking action on clickable" + clickable.name);
         lastClicked = null;
         hoverToast.ClearText();
+        StoryManager.singleton.TakeAction(clickable.name);
     }
 
     public void Update()
