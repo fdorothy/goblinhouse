@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    protected NavMeshAgent agent;
+    public NavMeshAgent agent;
     public CharacterFlipbook flipbook;
+    public Vector3 forward;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !ClickableManager.singleton.IsHovering())
         {
             Vector3 target;
             if (GetMouseTarget(out target))
@@ -25,9 +26,13 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (agent.velocity.magnitude > 0.01f)
+        {
+            forward = agent.velocity.normalized;
+        }
+        flipbook.CalculateFacing(forward);
         if (agent.hasPath)
         {
-            flipbook.CalculateFacing(agent.velocity);
             flipbook.walking = true;
         }
         else
@@ -46,7 +51,7 @@ public class Player : MonoBehaviour
         int walkableMask = 1 << NavMesh.GetAreaFromName("Walkable");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100.0f))
+        if (Physics.Raycast(ray, out hit, 1000.0f))
         {
             // don't walk towards clickable objects
             if (hit.transform.gameObject.tag != "Clickable")

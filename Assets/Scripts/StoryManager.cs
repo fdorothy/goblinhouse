@@ -1,67 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
     public static StoryManager singleton;
     public GameState gameState;
-
-    protected Dictionary<string, System.Action> stateChanges;
+    protected Scene currentScene;
+    bool loaded = false;
 
     Player player;
 
     StoryManager()
     {
         singleton = this;
+        loaded = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         gameState = new GameState();
         player = FindObjectOfType<Player>();
-        BuildStory();
-        SetPlayerPosition();
-    }
+        LoadScene(gameState.scene, gameState.entryPoint);
+        loaded = true;
 
-    void BuildStory()
-    {
-        stateChanges = new Dictionary<string, System.Action>();
-
-        //  bedroom 1 clickables
-        stateChanges["BedroomDoorClickable"] = () => LoadScene("Hallway", "Bedroom1");
-        stateChanges["BearHeadClickable"] = () => QuickText("A mounted bear's head. What an odd decoration.");
-        stateChanges["LaptopClickable"] = () => QuickText("No Network Connection Found. I think the router is downstairs in the living room.");
-        stateChanges["RadioClickable"] = () =>
+        SceneManager.sceneLoaded += (scene, mode) =>
         {
-            QuickText("bzz...severe storms...trees down...power outages expected in the area. Now back to our normal scheduling.");
+            currentScene = scene;
+            SetPlayerPosition();
         };
     }
 
-    public void TakeAction(string key)
+    public void LoadScene(string sceneName, string entryPoint)
     {
-        System.Action action;
-        if (stateChanges.TryGetValue(key, out action))
+        Debug.Log("Load scene " + sceneName + " at " + entryPoint);
+        gameState.scene = sceneName;
+        gameState.entryPoint = entryPoint;
+
+        // remove all objects from previous scene
+        if (loaded && currentScene.IsValid())
         {
-            action.Invoke();
+            SceneManager.UnloadSceneAsync(currentScene);
+            UnityEngine.AI.NavMesh.RemoveAllNavMeshData();
         }
+
+        var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(sceneName, parameters);
     }
 
-    void LoadScene(string sceneName, string loadPoint)
+    public void QuickText(string text)
     {
-        Debug.Log("Load scene " + sceneName + " at " + loadPoint);
+        Debug.Log(text);
     }
 
     void SetPlayerPosition()
     {
         GameObject entryPoint = GameObject.Find(gameState.entryPoint);
-        if (entryPoint) {
+        if (entryPoint)
+        {
             player.transform.position = entryPoint.transform.position;
+        }
+        else
+        {
+            Debug.Log("Could not find entry point " + gameState.entryPoint);
         }
     }
 
-    void QuickText(string text)
-    {
-        Debug.Log(text);
-    }
 }

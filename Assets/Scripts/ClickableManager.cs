@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum CursorType
 {
-    EYE, CROSSHAIR, PICKUP, NO, DEFAULT
+    EYE, CROSSHAIR, DOOR, NO, DEFAULT
 }
 
 [System.Serializable]
@@ -54,6 +54,11 @@ public class ClickableManager : MonoBehaviour
         }
     }
 
+    public bool IsHovering()
+    {
+        return lastClicked != null;
+    }
+
     public void ClearCursor()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -70,22 +75,21 @@ public class ClickableManager : MonoBehaviour
             TakeAction(lastClicked);
         } else
         {
-            Debug.Log("not close enough, moving");
             player.SetDestination(clickable.transform.position);
         }
     }
 
     public void TakeAction(Clickable clickable)
     {
-        Debug.Log("taking action on clickable" + clickable.name);
+        Debug.Log("taking action on clickable " + clickable.name);
         lastClicked = null;
         hoverToast.ClearText();
-        StoryManager.singleton.TakeAction(clickable.name);
+        clickable.TakeAction();
     }
 
-    public void Update()
+    void Update()
     {
-        if (lastClicked)
+        if (lastClicked != null)
         {
             if (IsCloseEnough())
             {
