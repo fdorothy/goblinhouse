@@ -21,9 +21,7 @@ public class SeeThrough : MonoBehaviour
 
     void Update()
     {
-        float s1 = Vector3.Dot(player.transform.position - this.transform.position, this.transform.forward);
-        float s2 = Vector3.Dot(Camera.main.transform.position - this.transform.position, this.transform.forward);
-        seeThrough = !(s1 > 0.0f && s2 > 0.0f || s1 < 0.0f && s2 < 0.0f);
+        seeThrough = IsPlaneBetweenPoints(transform.position, transform.forward, Camera.main.transform.position, player.transform.position);
         if (oldSeeThrough != seeThrough)
         {
             if (tweener != null && tweener.IsActive())
@@ -31,6 +29,13 @@ public class SeeThrough : MonoBehaviour
             DoFade();
             oldSeeThrough = seeThrough;
         }
+    }
+
+    bool IsPlaneBetweenPoints(Vector3 planeCenter, Vector3 planeNormal, Vector3 p1, Vector3 p2)
+    {
+        float s1 = Vector3.Dot(p1 - planeCenter, planeNormal);
+        float s2 = Vector3.Dot(p2 - planeCenter, planeNormal);
+        return !(s1 > 0.0f && s2 > 0.0f || s1 < 0.0f && s2 < 0.0f);
     }
 
     void DoMovement()
