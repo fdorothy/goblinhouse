@@ -1,6 +1,6 @@
 ﻿public class GameState
 {
-    public string scene = "Bedroom";
-    public string entryPoint = "Entry_Door";
+    public string scene = "TestRoom";
+    public string entryPoint = "PlayerStart";
     public bool bedroomRadioOn = false;
 }
