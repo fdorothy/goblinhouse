@@ -364,6 +364,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ca3c54028a8ba46bdbcd25a3a672c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customGameState:
+    scene: TestRoom
+    entryPoint: PlayerStart
+    bedroomRadioOn: 0
+  useCustomState: 0
 --- !u!4 &812887514
 Transform:
   m_ObjectHideFlags: 0

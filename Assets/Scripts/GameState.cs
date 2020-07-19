@@ -1,6 +1,7 @@
-﻿public class GameState
+﻿[System.Serializable]
+public class GameState
 {
-    public string scene = "TestRoom";
-    public string entryPoint = "PlayerStart";
+    public string scene = "Bedroom";
+    public string entryPoint = "FromStart";
     public bool bedroomRadioOn = false;
 }

@@ -6,17 +6,38 @@ using UnityEngine.SceneManagement;
 public class StoryManager : MonoBehaviour
 {
     public static StoryManager singleton;
-    public GameState gameState;
+    private GameState currentGameState;
+    public GameState customGameState;
+    public bool useCustomState = false;
     protected Scene currentScene;
     bool loaded = false;
 
     Player player;
+
+    public GameState gameState
+    {
+        get { return currentGameState; }
+        set { currentGameState = gameState; }
+    }
 
     StoryManager()
     {
         singleton = this;
         loaded = false;
     }
+
+    private void Awake()
+    {
+        if (useCustomState)
+        {
+            currentGameState = customGameState;
+        } else
+        {
+            currentGameState = new GameState();
+            customGameState = currentGameState;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
