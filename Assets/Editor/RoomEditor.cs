@@ -77,11 +77,6 @@ public class RoomEditor : EditorWindow
         wallSections.AddRange(Duplicate(p.wallPrefab, p.height, new Vector3(-halfWidth, 0, 0), new Vector3(0, 0, p.spacing), Quaternion.Euler(0.0f, 90.0f, 0.0f), walls));
         wallSections.AddRange(Duplicate(p.wallPrefab, p.height, new Vector3(p.width * p.spacing - halfWidth, 0), new Vector3(0, 0, p.spacing), Quaternion.Euler(0.0f, 270.0f, 0.0f), walls));
 
-        foreach (Transform section in wallSections)
-        {
-            section.gameObject.AddComponent<SeeThrough>();
-        }
-
         Transform corners = new GameObject("corners").transform;
         corners.SetParent(node);
         Transform corner;

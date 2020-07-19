@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         {
             flipbook.walking = false;
         }
+        Shader.SetGlobalVector("_PlayerPosition", transform.position);
     }
 
     public void SetDestination(Vector3 target)
