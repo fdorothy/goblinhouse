@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 public class StoryManager : MonoBehaviour
 {
     public static StoryManager singleton;
-    private GameState currentGameState;
-    public GameState customGameState;
-    public bool useCustomState = false;
+    private Story currentStory;
+    public Story customStory;
+    public bool useCustomStory = false;
     protected Scene currentScene;
     bool loaded = false;
 
     Player player;
 
-    public GameState gameState
+    public Story gameState
     {
-        get { return currentGameState; }
-        set { currentGameState = gameState; }
+        get { return currentStory; }
+        set { currentStory = gameState; }
     }
 
     StoryManager()
@@ -28,20 +28,20 @@ public class StoryManager : MonoBehaviour
 
     private void Awake()
     {
-        if (useCustomState)
+        if (useCustomStory)
         {
-            currentGameState = customGameState;
+            currentStory = customStory;
         } else
         {
-            currentGameState = new GameState();
-            customGameState = currentGameState;
+            currentStory = new Story();
+            customStory = currentStory;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameState = new GameState();
+        gameState = new Story();
         player = FindObjectOfType<Player>();
         LoadScene(gameState.scene, gameState.entryPoint);
         loaded = true;
@@ -88,4 +88,43 @@ public class StoryManager : MonoBehaviour
         }
     }
 
+    Story LoadStory(string rawJson)
+    {
+        return JsonUtility.FromJson<Story>(rawJson);
+    }
+
+    string SaveStory(Story story)
+    {
+        return JsonUtility.ToJson(story, true);
+    }
+
+    void SaveStoryToPrefs()
+    {
+        PlayerPrefs.SetString("save_data", SaveStory(currentStory));
+    }
+
+    void LoadStoryFromPrefs()
+    {
+        string raw = PlayerPrefs.GetString("save_data", "");
+        if (raw == "")
+        {
+            currentStory = new Story();
+        }
+        else
+        {
+            currentStory = LoadStory(raw);
+            if (currentStory == null)
+                currentStory = new Story();
+        }
+    }
+
+    bool HasSavedStory()
+    {
+        return PlayerPrefs.HasKey("save_data");
+    }
+
+    void NewStory()
+    {
+        currentStory = new Story();
+    }
 }

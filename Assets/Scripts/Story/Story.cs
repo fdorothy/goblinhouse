@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public class GameState
+public class Story
 {
     public string scene = "Bedroom";
     public string entryPoint = "FromStart";
