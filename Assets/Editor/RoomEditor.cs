@@ -81,16 +81,9 @@ public class RoomEditor : EditorWindow
         corners.SetParent(node);
         Transform corner;
         corner = CopyTo(p.cornerPrefab, new Vector3(-halfWidth, 0, -halfWidth), corners);
-        //corner.gameObject.AddComponent<SeeThrough>();
-
         corner = CopyTo(p.cornerPrefab, new Vector3(-halfWidth, 0, p.height * p.spacing - halfWidth), corners);
-        //corner.gameObject.AddComponent<SeeThrough>();
-
         corner = CopyTo(p.cornerPrefab, new Vector3(p.width * p.spacing - halfWidth, 0, -halfWidth), corners);
-        //corner.gameObject.AddComponent<SeeThrough>();
-
         corner = CopyTo(p.cornerPrefab, new Vector3(p.width * p.spacing - halfWidth, 0, p.height * p.spacing - halfWidth), corners);
-        //corner.gameObject.AddComponent<SeeThrough>();
     }
 
     List<Transform> Duplicate(Transform obj, int n, Vector3 startPos, Vector3 delta, Quaternion rotation, Transform parent)

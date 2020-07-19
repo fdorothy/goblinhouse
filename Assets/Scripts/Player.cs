@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
     public bool GetMouseTarget(out Vector3 target)
     {
         int walkableMask = 1 << NavMesh.GetAreaFromName("Walkable");
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 v = new Vector3(Input.mousePosition.x / (float)Screen.width, Input.mousePosition.y / (float)Screen.height);
+        Ray ray = Camera.main.ViewportPointToRay(v);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000.0f))
         {
