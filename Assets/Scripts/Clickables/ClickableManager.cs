@@ -73,7 +73,8 @@ public class ClickableManager : MonoBehaviour
         if (IsCloseEnough())
         {
             TakeAction(lastClicked);
-        } else
+        }
+        else
         {
             player.SetDestination(clickable.transform.position);
         }
@@ -96,6 +97,51 @@ public class ClickableManager : MonoBehaviour
                 TakeAction(lastClicked);
             }
         }
+        CheckHover();
+
+        if (Input.GetMouseButtonDown(0) && !ClickableManager.singleton.IsHovering())
+        {
+            RaycastHit hit;
+            if (GetMouseTarget(out hit))
+            {
+                Transform t = hit.collider.transform;
+                if (t.GetComponent<Clickable>() != null)
+                {
+                    Clickable clickable = t.GetComponent<Clickable>();
+                    clickable.MouseDown();
+                }
+                else
+                {
+                    player.SetDestination(hit.point);
+                    ClearLastClicked();
+                }
+            }
+        }
+    }
+
+    public void CheckHover()
+    {
+        RaycastHit hit;
+        if (GetMouseTarget(out hit))
+        {
+            Transform t = hit.collider.transform;
+            if (t.GetComponent<Clickable>() != null)
+            {
+                Clickable clickable = t.GetComponent<Clickable>();
+                clickable.MouseEnter();
+            }
+            else
+            {
+                ClearCursor();
+            }
+        }
+    }
+
+    public bool GetMouseTarget(out RaycastHit hit)
+    {
+        Vector3 v = new Vector3(Input.mousePosition.x / (float)Screen.width, Input.mousePosition.y / (float)Screen.height);
+        Ray ray = Camera.main.ViewportPointToRay(v);
+        return Physics.Raycast(ray, out hit, 1000.0f);
     }
 
     public void ClearLastClicked()

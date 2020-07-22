@@ -73,6 +73,7 @@ public class StoryManager : MonoBehaviour
     public void QuickText(string text)
     {
         Debug.Log(text);
+        DialogueManager.singleton.CreateDialogue(text);
     }
 
     void SetPlayerPosition()

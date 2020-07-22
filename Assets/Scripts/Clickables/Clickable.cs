@@ -20,7 +20,7 @@ public class Clickable : MonoBehaviour
             return name;
     }
 
-    void OnMouseEnter()
+    public void MouseEnter()
     {
         if (enabled)
             ClickableManager.singleton.SetCursor(GetCursorType(), GetTitle());
@@ -28,12 +28,12 @@ public class Clickable : MonoBehaviour
             ClickableManager.singleton.SetCursor(CursorType.NO, GetTitle());
     }
 
-    void OnMouseExit()
+    public void MouseExit()
     {
         ClickableManager.singleton.ClearCursor();
     }
 
-    private void OnMouseDown()
+    public void MouseDown()
     {
         ClickableManager.singleton.OnClick(this);
     }

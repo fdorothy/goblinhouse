@@ -16,16 +16,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !ClickableManager.singleton.IsHovering())
-        {
-            Vector3 target;
-            if (GetMouseTarget(out target))
-            {
-                SetDestination(target);
-                ClickableManager.singleton.ClearLastClicked();
-            }
-        }
-
         if (agent.velocity.magnitude > 0.01f)
         {
             forward = agent.velocity.normalized;

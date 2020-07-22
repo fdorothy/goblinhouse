@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 52827dabc4042bd4cb5d95cbe1f17065
+guid: bbeb678c7832549419986a43caf1c51f
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wallpanel
-    second: {fileID: 2100000, guid: e84bd969bb76d6446837bb1abd10b58d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0

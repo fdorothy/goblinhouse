@@ -72,7 +72,7 @@
 			float t = clamp(playerDistance / 30.0f, 0.0f, 1.0f);
 			t = pow(t, 3);
 
-			float minAlpha = 0.25f;
+			float minAlpha = 0.0f;// 0.25f;
 			minAlpha = minAlpha * (1.0f - t) + t;
 			float maxAlpha = 1.0f;
 			if (betweenPoints) {
