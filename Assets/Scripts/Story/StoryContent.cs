@@ -52,30 +52,13 @@ public class StoryContent : MonoBehaviour
         return false;
     }
 
-    public void RunConversation(string text, System.Action cb = null)
-    {
-        Conversation c = new Conversation();
-        c.Parse(text);
-        RunConversation(c, cb);
-    }
-
-    public void RunConversation(Conversation c, System.Action cb = null)
+    public void RunConversation(Retroverse.Conversation c, System.Action cb = null)
     {
         StoryManager.singleton.RunConversation(c, cb);
     }
 
-    public void Say(string text)
+    public void Say(string text, string actor)
     {
-        DialogueManager.singleton.CreateDialogue(text, DialogueType.SAY);
-    }
-
-    public void SayOther(string text)
-    {
-        DialogueManager.singleton.CreateDialogue(text, DialogueType.SAY_OTHER);
-    }
-
-    public void ShowAction(string text)
-    {
-        DialogueManager.singleton.CreateDialogue(text, DialogueType.ACTION);
+        DialogueManager.singleton.CreateDialogue(text, actor);
     }
 }

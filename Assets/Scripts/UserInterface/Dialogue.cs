@@ -9,6 +9,10 @@ public class Dialogue : MonoBehaviour
     public Text text;
     public CanvasGroup panel;
     public Tweener shifter;
+    public static float lifetime = 3.0f;
+    public static float fadetime = 2.0f;
+    public static float shiftSpeed = 0.5f;
+    public static float shiftOffset = 30f;
 
     private void Start()
     {
@@ -19,9 +23,9 @@ public class Dialogue : MonoBehaviour
     {
         this.text.text = text;
         Sequence seq = DOTween.Sequence();
-        seq.Append(panel.DOFade(1.0f, 0.25f));
-        seq.AppendInterval(1.0f);
-        seq.Append(panel.DOFade(0.0f, 0.25f));
+        seq.Append(panel.DOFade(1.0f, fadetime));
+        seq.AppendInterval(lifetime);
+        seq.Append(panel.DOFade(0.0f, fadetime));
         seq.OnComplete(() =>
         {
             onDone.Invoke();
@@ -29,13 +33,13 @@ public class Dialogue : MonoBehaviour
         });
     }
 
-    public void ShiftDown()
+    public void Shift()
     {
         if (shifter != null && shifter.IsActive())
         {
             shifter.Kill(true);
             shifter = null;
         }
-        shifter = transform.DOMoveY(transform.position.y - 40.0f, 0.1f, false);
+        shifter = transform.DOMoveY(transform.position.y + shiftOffset, shiftSpeed, false);
     }
 }

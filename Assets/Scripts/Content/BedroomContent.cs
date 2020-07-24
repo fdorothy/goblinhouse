@@ -5,36 +5,56 @@ using UnityEngine;
 
 public class BedroomContent : StoryContent
 {
-    static string laptop_first_click = "ACTION\nNo Internet connection\nSAY\nI think the router is in the living room downstairs.";
-    static string laptop_click = "The internet is still off.\nI think the router is in the living room downstairs.";
+    Retroverse.Conversation laptopFirstClick;
+    Retroverse.Conversation laptopClick;
 
-    static string window_click = "The storm rages outside.\nYou see the gravestones in the cemetary below in a flash of lightning.";
-    static string window_first_click = "A wet winter storm rages outside.\nYou see the gravestones in the cemetary next door in a flash of lightning.\nIn the flash, you see dark figures scurring amongst the stones.";
+    Retroverse.Conversation windowFirstClick;
+    Retroverse.Conversation windowClick;
 
-    static string radio_first_click = @"
-    ACTION
-    click...bzz
-    SAY_OTHER
-    the weather is quite bad for Ireland
-    the hurricane has knocked down power lines all over the island
-    wind gusts over 100 kilometers per...
-    ACTION
-    bzz...click";
+    Retroverse.Conversation radioFirstClick;
+    Retroverse.Conversation radioClick;
 
-    static string radio_click = "ACTION\nclick...bzz\nSAY\nI can't seem to find any stations";
+    public void Start()
+    {
+        laptopFirstClick = Retroverse.Conversation.Begin()
+            .Line("No Internet connection", "item")
+            .Line("I think the router is in the living room downstairs.", "main");
+        laptopClick = Retroverse.Conversation.Begin()
+            .Line("The internet is still off.", "main")
+            .Line("I think the router is in the living room downstairs.", "main");
+
+        windowFirstClick = Retroverse.Conversation.Begin()
+            .Line("A wet winter storm rages outside.", "main")
+            .Line("You see the gravestones in the cemetary next door in a flash of lightning.", "main")
+            .Line("In the flash, you see dark figures scurring amongst the stones.", "main");
+        windowClick = Retroverse.Conversation.Begin()
+            .Line("The storm rages outside.", "main")
+            .Line("You see the gravestones in the cemetary below in a flash of lightning.");
+
+        radioFirstClick = Retroverse.Conversation.Begin()
+            .Line("click...bzz", "item")
+            .Line("the weather is quite bad for Ireland", "other")
+            .Line("the hurricane has knocked down power lines all over the island", "other")
+            .Line("wind gusts over 100 kilometers per...", "other")
+            .Line("bzz...click", "item");
+
+        radioClick = Retroverse.Conversation.Begin()
+            .Line("click...bzz", "item")
+            .Line("I can't seem to find any stations", "main");
+    }
 
     public override void ProcessInput(KeyStoryItem item, Clickable clickable, bool firstClick)
     {
         switch (item)
         {
             case KeyStoryItem.BEDROOM_LAPTOP:
-                RunConversation(firstClick ? laptop_first_click : laptop_click);
+                RunConversation(firstClick ? laptopFirstClick : laptopClick);
                 break;
             case KeyStoryItem.BEDROOM_WINDOW:
-                RunConversation(firstClick ? window_first_click : window_click);
+                RunConversation(firstClick ? windowFirstClick : windowClick);
                 break;
             case KeyStoryItem.BEDROOM_RADIO:
-                RunConversation(firstClick ? radio_first_click : radio_click);
+                RunConversation(firstClick ? radioFirstClick : radioClick);
                 break;
             default: break;
         }

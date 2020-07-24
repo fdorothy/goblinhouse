@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
-    public static float StoryDelay = 1.0f;
-    public static float StoryPace = 2.0f;
+    public static float StoryPace = 1.5f;
     public static StoryManager singleton;
     private Story currentStory;
     public Story customStory;
@@ -75,10 +74,9 @@ public class StoryManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName, parameters);
     }
 
-    public void Dialogue(string text, DialogueType type)
+    public void Dialogue(string text, string actor)
     {
-        Debug.Log(text);
-        DialogueManager.singleton.CreateDialogue(text, type);
+        DialogueManager.singleton.CreateDialogue(text, actor);
     }
 
     void SetPlayerPosition()
@@ -94,56 +92,27 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    Story LoadStory(string rawJson)
-    {
-        return JsonUtility.FromJson<Story>(rawJson);
-    }
-
-    string SaveStory(Story story)
-    {
-        return JsonUtility.ToJson(story, true);
-    }
-
-    void SaveStoryToPrefs()
-    {
-        PlayerPrefs.SetString("save_data", SaveStory(currentStory));
-    }
-
-    void LoadStoryFromPrefs()
-    {
-        string raw = PlayerPrefs.GetString("save_data", "");
-        if (raw == "")
-        {
-            currentStory = new Story();
-        }
-        else
-        {
-            currentStory = LoadStory(raw);
-            if (currentStory == null)
-                currentStory = new Story();
-        }
-    }
-
-    bool HasSavedStory()
-    {
-        return PlayerPrefs.HasKey("save_data");
-    }
-
     void NewStory()
     {
         currentStory = new Story();
     }
 
-    public IEnumerator ConversationRoutine(Conversation conversation, System.Action cb)
+    public IEnumerator ConversationRoutine(Retroverse.Conversation conversation, System.Action cb = null)
     {
         yield return new WaitForEndOfFrame();
 
         foreach (var action in conversation.actions)
         {
-            if (action.type == ConversationActionType.BLURB)
+            if (action.type == Retroverse.ConversationActionType.LINE)
             {
-                StoryManager.singleton.Dialogue(action.blurb.text, action.blurb.type);
-                yield return new WaitForSeconds(1.0f);
+                Dialogue(action.line.text, action.line.actor);
+                yield return new WaitForSeconds(StoryPace);
+            } else if (action.type == Retroverse.ConversationActionType.DELAY)
+            {
+                yield return new WaitForSeconds(action.delay);
+            } else if (action.type == Retroverse.ConversationActionType.FUNCTION)
+            {
+                action.function.Invoke();
             }
         }
         runningConversation = false;
@@ -151,7 +120,7 @@ public class StoryManager : MonoBehaviour
             cb.Invoke();
     }
 
-    public void RunConversation(Conversation conversation, System.Action cb)
+    public void RunConversation(Retroverse.Conversation conversation, System.Action cb = null)
     {
         runningConversation = true;
         StartCoroutine(ConversationRoutine(conversation, cb));

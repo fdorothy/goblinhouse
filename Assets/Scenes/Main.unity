@@ -439,8 +439,10 @@ MonoBehaviour:
     scene: TestRoom
     entryPoint: PlayerStart
     bedroomRadioOn: 0
+    clicked: 
   useCustomStory: 0
   content: {fileID: 0}
+  runningConversation: 0
 --- !u!4 &812887514
 Transform:
   m_ObjectHideFlags: 0
@@ -584,11 +586,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePrefabs:
-  - type: 0
+  - actor: main
     prefab: {fileID: 879976963294336618, guid: 77878b5f797d3f5478152030164d1d9a, type: 3}
-  - type: 1
+  - actor: item
     prefab: {fileID: 879976963294336618, guid: a0bea0499c6cb8e4e83f72a2aa3044dc, type: 3}
-  - type: 2
+  - actor: other
     prefab: {fileID: 879976963294336618, guid: d5189f45249042e47b6dc171ecc9e5b1, type: 3}
   dialogueParent: {fileID: 820234036}
 --- !u!4 &958263279

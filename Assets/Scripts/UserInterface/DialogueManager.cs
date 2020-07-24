@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueVariant
 {
-    public DialogueType type;
+    public string actor;
     public Dialogue prefab;
 }
 
@@ -23,10 +23,10 @@ public class DialogueManager : MonoBehaviour
         singleton = this;
     }
 
-    public void CreateDialogue(string text, DialogueType type)
+    public void CreateDialogue(string text, string actor)
     {
-        dialogues.ForEach((Dialogue dialog) => dialog.ShiftDown());
-        Dialogue d = Instantiate<Dialogue>(GetDialogue(type), dialogueParent);
+        dialogues.ForEach((Dialogue dialog) => dialog.Shift());
+        Dialogue d = Instantiate<Dialogue>(GetDialogue(actor), dialogueParent);
         d.transform.SetParent(dialogueParent);
         dialogues.Add(d);
         d.RunDialogue(text, () =>
@@ -35,9 +35,9 @@ public class DialogueManager : MonoBehaviour
         });
     }
 
-    public Dialogue GetDialogue(DialogueType type)
+    public Dialogue GetDialogue(string actor)
     {
-        DialogueVariant v = dialoguePrefabs.Find(x => x.type == type);
+        DialogueVariant v = dialoguePrefabs.Find(x => x.actor == actor);
         if (v != null)
         {
             return v.prefab;

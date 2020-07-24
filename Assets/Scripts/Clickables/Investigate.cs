@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Investigate : Clickable
 {
-    [Multiline]
-    public string text;
-    protected Conversation conversation;
-    public DialogueType type = DialogueType.SAY;
+    public List<Retroverse.Line> lines;
+    protected Retroverse.Conversation conversation;
     public KeyStoryItem item = KeyStoryItem.NONE;
 
     public void Start()
     {
-        conversation = new Conversation();
-        conversation.Parse(text);
+        conversation = new Retroverse.Conversation();
+        lines.ForEach(line => conversation.Line(line.text, line.actor));
     }
 
     public override CursorType GetCursorType()

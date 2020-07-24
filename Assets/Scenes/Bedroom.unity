@@ -559,12 +559,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Decor
-  text: 'A bear head?
-
-    Odd.'
-  type: 0
+  lines:
+  - actor: main
+    text: A bear head?
+  - actor: main
+    text: The owners must be hunters.
   item: 0
-  running: 0
 --- !u!64 &738349159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -979,10 +979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: 
-  text: 
-  type: 0
+  lines: []
   item: 4
-  running: 0
 --- !u!64 &1401481261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1734,10 +1732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Laptop
-  text: No Internet Connection
-  type: 0
+  lines: []
   item: 1
-  running: 0
 --- !u!64 &6972934746197825132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3132,10 +3128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Old Radio
-  text: 
-  type: 1
+  lines: []
   item: 2
-  running: 0
 --- !u!64 &6972934747645550002
 MeshCollider:
   m_ObjectHideFlags: 0
