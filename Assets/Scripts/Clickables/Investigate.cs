@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class Investigate : Clickable
 {
+    [Multiline]
     public string text;
+    protected Conversation conversation;
+    public DialogueType type = DialogueType.SAY;
+    public KeyStoryItem item = KeyStoryItem.NONE;
+
+    public void Start()
+    {
+        conversation = new Conversation();
+        conversation.Parse(text);
+    }
 
     public override CursorType GetCursorType()
     {
@@ -13,6 +23,16 @@ public class Investigate : Clickable
 
     public override void TakeAction()
     {
-        StoryManager.singleton.QuickText(text);
+        if (!StoryManager.singleton.runningConversation)
+        {
+            if (item != KeyStoryItem.NONE)
+            {
+                StoryManager.singleton.content.ProcessInput(item, this);
+            }
+            else
+            {
+                StartCoroutine(StoryManager.singleton.ConversationRoutine(conversation, null));
+            }
+        }
     }
 }

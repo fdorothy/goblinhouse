@@ -139,7 +139,28 @@ public class ClickableManager : MonoBehaviour
 
     public bool GetMouseTarget(out RaycastHit hit)
     {
-        Vector3 v = new Vector3(Input.mousePosition.x / (float)Screen.width, Input.mousePosition.y / (float)Screen.height);
+        float fixedRatio = 320.0f / 240.0f;
+        float w = Screen.width;
+        float h = Screen.height;
+        float screenRatio = w / h;
+
+        float rw = w, rh = h, offsetY = 0.0f, offsetX = 0.0f;
+        if (screenRatio > fixedRatio)
+        {
+            // we have a narrow screen, there is no padding and the left and right sides stick out
+            rw = h * fixedRatio;
+            rh = h;
+        } else
+        {
+            rw = w;
+            rh = w / fixedRatio;
+        }
+        offsetY = (h - rh) / 2.0f;
+        offsetX = (w - rw) / 2.0f;
+
+        float mx = Input.mousePosition.x;
+        float my = Input.mousePosition.y;
+        Vector3 v = new Vector3((mx - offsetX) / rw, (my - offsetY) / rh);
         Ray ray = Camera.main.ViewportPointToRay(v);
         return Physics.Raycast(ray, out hit, 1000.0f);
     }

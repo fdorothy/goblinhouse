@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
+    public static float StoryDelay = 1.0f;
+    public static float StoryPace = 2.0f;
     public static StoryManager singleton;
     private Story currentStory;
     public Story customStory;
     public bool useCustomStory = false;
+    public StoryContent content;
     protected Scene currentScene;
     bool loaded = false;
+    public bool runningConversation = false;
 
     Player player;
 
@@ -31,7 +35,8 @@ public class StoryManager : MonoBehaviour
         if (useCustomStory)
         {
             currentStory = customStory;
-        } else
+        }
+        else
         {
             currentStory = new Story();
             customStory = currentStory;
@@ -70,10 +75,10 @@ public class StoryManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName, parameters);
     }
 
-    public void QuickText(string text)
+    public void Dialogue(string text, DialogueType type)
     {
         Debug.Log(text);
-        DialogueManager.singleton.CreateDialogue(text);
+        DialogueManager.singleton.CreateDialogue(text, type);
     }
 
     void SetPlayerPosition()
@@ -127,5 +132,28 @@ public class StoryManager : MonoBehaviour
     void NewStory()
     {
         currentStory = new Story();
+    }
+
+    public IEnumerator ConversationRoutine(Conversation conversation, System.Action cb)
+    {
+        yield return new WaitForEndOfFrame();
+
+        foreach (var action in conversation.actions)
+        {
+            if (action.type == ConversationActionType.BLURB)
+            {
+                StoryManager.singleton.Dialogue(action.blurb.text, action.blurb.type);
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+        runningConversation = false;
+        if (cb != null)
+            cb.Invoke();
+    }
+
+    public void RunConversation(Conversation conversation, System.Action cb)
+    {
+        runningConversation = true;
+        StartCoroutine(ConversationRoutine(conversation, cb));
     }
 }
