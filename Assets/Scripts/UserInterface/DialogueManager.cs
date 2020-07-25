@@ -15,7 +15,6 @@ public class DialogueManager : MonoBehaviour
 
     public Transform dialogueParent;
     public static DialogueManager singleton;
-    public static float StoryPace = 1.5f;
     public bool runningConversation = false;
 
     protected List<Dialogue> dialogues = new List<Dialogue>();
@@ -30,11 +29,20 @@ public class DialogueManager : MonoBehaviour
         dialogues.ForEach((Dialogue dialog) => dialog.Shift());
         Dialogue d = Instantiate<Dialogue>(GetDialogue(actor), dialogueParent);
         d.transform.SetParent(dialogueParent);
+        KillAllDialogues();
         dialogues.Add(d);
-        d.RunDialogue(text, () =>
+        d.RunDialogue(text);
+    }
+
+    public void KillAllDialogues()
+    {
+        foreach (Dialogue dialogue in dialogues)
         {
-            dialogues.Remove(d);
-        });
+            dialogue.DestroyDialogue(() =>
+            {
+                dialogues.Remove(dialogue);
+            });
+        }
     }
 
     public Dialogue GetDialogue(string actor)

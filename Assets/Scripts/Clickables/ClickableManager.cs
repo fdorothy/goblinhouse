@@ -30,6 +30,16 @@ public class ClickableManager : MonoBehaviour
         singleton = this;
     }
 
+
+
+
+
+
+
+
+
+
+
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -90,6 +100,12 @@ public class ClickableManager : MonoBehaviour
 
     void Update()
     {
+        // if we are running a story, then no clicks!
+        if (StateManager.singleton.content.runningStory)
+        {
+            return;
+        }
+
         if (lastClicked != null)
         {
             if (IsCloseEnough())
