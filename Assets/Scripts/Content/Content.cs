@@ -19,14 +19,14 @@ public enum KeyStoryItem
     BEDROOM_WINDOW
 }
 
-public class StoryContent : MonoBehaviour
+public class Content : MonoBehaviour
 {
-    protected Story story;
+    protected State state;
 
     public void Awake()
     {
-        StoryManager.singleton.content = this;
-        story = StoryManager.singleton.gameState;
+        StateManager.singleton.content = this;
+        state = StateManager.singleton.gameState;
     }
 
     public void ProcessInput(KeyStoryItem item, Clickable clickable)
@@ -43,7 +43,7 @@ public class StoryContent : MonoBehaviour
     public bool RememberClick(KeyStoryItem item)
     {
         if (item != KeyStoryItem.NONE) {
-            List<KeyStoryItem> clicked = StoryManager.singleton.gameState.clicked;
+            List<KeyStoryItem> clicked = StateManager.singleton.gameState.clicked;
             if (!clicked.Contains(item)) {
                 clicked.Add(item);
                 return true;
@@ -52,13 +52,8 @@ public class StoryContent : MonoBehaviour
         return false;
     }
 
-    public void RunConversation(Retroverse.Conversation c, System.Action cb = null)
+    public void RunStory(Retroverse.Story c, string section, System.Action cb = null)
     {
-        StoryManager.singleton.RunConversation(c, cb);
-    }
-
-    public void Say(string text, string actor)
-    {
-        DialogueManager.singleton.CreateDialogue(text, actor);
+        DialogueManager.singleton.RunStory(c, section, cb);
     }
 }

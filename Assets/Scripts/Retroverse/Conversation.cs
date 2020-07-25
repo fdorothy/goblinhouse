@@ -5,7 +5,7 @@ namespace Retroverse
     [System.Serializable]
     public enum ConversationActionType
     {
-        NONE, LINE, FUNCTION, DELAY
+        NONE, LINE, FUNCTION, DELAY, STOP, GOTO
     }
 
     [System.Serializable]
@@ -15,6 +15,7 @@ namespace Retroverse
         public Line line;
         public System.Action function;
         public float delay;
+        public string gotoLabel;
     }
 
     [System.Serializable]
@@ -48,6 +49,15 @@ namespace Retroverse
             ConversationAction action = new ConversationAction();
             action.function = function;
             action.type = ConversationActionType.FUNCTION;
+            actions.Add(action);
+            return this;
+        }
+
+        public Conversation Goto(string label)
+        {
+            ConversationAction action = new ConversationAction();
+            action.gotoLabel = label;
+            action.type = ConversationActionType.GOTO;
             actions.Add(action);
             return this;
         }

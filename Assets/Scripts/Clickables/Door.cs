@@ -26,6 +26,6 @@ public class Door : Clickable
 
     public override void TakeAction()
     {
-        StoryManager.singleton.LoadScene(scene, GetEntryPoint());
+        StateManager.singleton.LoadScene(scene, GetEntryPoint());
     }
 }

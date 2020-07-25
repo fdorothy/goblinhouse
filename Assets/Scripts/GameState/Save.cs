@@ -2,33 +2,33 @@
 
 class Save
 {
-    public static Story LoadStory(string rawJson)
+    public static State LoadStory(string rawJson)
     {
-        return JsonUtility.FromJson<Story>(rawJson);
+        return JsonUtility.FromJson<State>(rawJson);
     }
 
-    public static string SaveStory(Story story)
+    public static string SaveStory(State story)
     {
         return JsonUtility.ToJson(story, true);
     }
 
-    public void SaveStoryToPrefs(Story story)
+    public void SaveStoryToPrefs(State story)
     {
         PlayerPrefs.SetString("save_data", SaveStory(story));
     }
 
-    public Story LoadStoryFromPrefs()
+    public State LoadStoryFromPrefs()
     {
         string raw = PlayerPrefs.GetString("save_data", "");
         if (raw == "")
         {
-            return new Story();
+            return new State();
         }
         else
         {
-            Story story = LoadStory(raw);
+            State story = LoadStory(raw);
             if (story == null)
-                story = new Story();
+                story = new State();
             return story;
         }
     }

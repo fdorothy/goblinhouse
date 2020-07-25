@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 812887514}
   - component: {fileID: 812887513}
   m_Layer: 0
-  m_Name: StoryManager
+  m_Name: StateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,14 +435,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ca3c54028a8ba46bdbcd25a3a672c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customStory:
-    scene: TestRoom
-    entryPoint: PlayerStart
+  customState:
+    scene: Bedroom
+    entryPoint: FromStart
     bedroomRadioOn: 0
     clicked: 
-  useCustomStory: 0
+  useCustomState: 0
   content: {fileID: 0}
-  runningConversation: 0
 --- !u!4 &812887514
 Transform:
   m_ObjectHideFlags: 0
@@ -593,6 +592,7 @@ MonoBehaviour:
   - actor: other
     prefab: {fileID: 879976963294336618, guid: d5189f45249042e47b6dc171ecc9e5b1, type: 3}
   dialogueParent: {fileID: 820234036}
+  runningConversation: 0
 --- !u!4 &958263279
 Transform:
   m_ObjectHideFlags: 0

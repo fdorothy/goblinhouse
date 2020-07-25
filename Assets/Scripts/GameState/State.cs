@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Story
+public class State
 {
     public string scene = "Bedroom";
     public string entryPoint = "FromStart";
