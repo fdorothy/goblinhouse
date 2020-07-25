@@ -2,58 +2,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-/**
- * This enum is a list of all important items that appear in the game. When it is clicked, we call
- * StoryContent, which will maybe do some dialogue and set our Story state.
- * */
-[Serializable]
-public enum KeyStoryItem
-{
-    NONE,
-
-    // main bedroom
-    BEDROOM_LAPTOP,
-    BEDROOM_RADIO,
-    BEDROOM_DOOR,
-    BEDROOM_WINDOW
-}
+using Ink.Runtime;
 
 public class Content : MonoBehaviour
 {
+    public TextAsset inkJson;
+    private Story story;
     protected State state;
+    public bool runningStory = false;
+    public float storyPace = 2.0f;
 
-    public void Awake()
+    public void Start()
     {
         StateManager.singleton.content = this;
         state = StateManager.singleton.gameState;
+        story = new Story(inkJson.text);
+        StartCoroutine(StoryRoutine());
     }
 
-    public void ProcessInput(KeyStoryItem item, Clickable clickable)
+    public void ProcessInput(string item, Clickable clickable)
     {
-        ProcessInput(item, clickable, RememberClick(item));
-
+        RunStory(item);
     }
 
-    public virtual void ProcessInput(KeyStoryItem item, Clickable clickable, bool firstClick)
+    public IEnumerator StoryRoutine(System.Action cb = null)
     {
-
+        yield return new WaitForEndOfFrame();
+        while (story.canContinue)
+        {
+            string next = story.Continue();
+            DialogueManager.singleton.CreateDialogue(trim(next), "main");
+            yield return new WaitForSeconds(storyPace);
+        }
+        ShowChoices();
     }
 
-    public bool RememberClick(KeyStoryItem item)
+    public void ShowChoices()
     {
-        if (item != KeyStoryItem.NONE) {
-            List<KeyStoryItem> clicked = StateManager.singleton.gameState.clicked;
-            if (!clicked.Contains(item)) {
-                clicked.Add(item);
-                return true;
+        DialogueManager dm = DialogueManager.singleton;
+        if (story.currentChoices.Count > 0)
+        {
+            foreach (Choice choice in story.currentChoices)
+            {
+                dm.ShowChoice(trim(choice.text), () =>
+                {
+                    story.ChooseChoiceIndex(choice.index);
+                    StartCoroutine(StoryRoutine());
+                });
             }
         }
-        return false;
+        else
+        {
+            runningStory = false;
+        }
     }
 
-    public void RunStory(Retroverse.Story c, string section, System.Action cb = null)
+    public string trim(string text)
     {
-        DialogueManager.singleton.RunStory(c, section, cb);
+        return text.Trim();
+    }
+
+    public void RunStory(string path, System.Action cb = null)
+    {
+        if (!runningStory)
+        {
+            runningStory = true;
+            story.ChoosePathString(path);
+            StartCoroutine(StoryRoutine(cb));
+        }
     }
 }
