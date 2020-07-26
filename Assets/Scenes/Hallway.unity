@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customTitle: window
+  customTitle: downstairs
   inkPath: hallway_stairs
 --- !u!64 &227341147
 MeshCollider:
@@ -2498,11 +2498,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825628305473829040}
   m_LocalRotation: {x: 0.068786375, y: -0.6592876, z: 0.10238797, w: 0.74170417}
-  m_LocalPosition: {x: -16, y: 8, z: -8.5}
+  m_LocalPosition: {x: 0.5, y: 7.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6972934747523365078}
-  m_RootOrder: 2
+  m_Father: {fileID: 4442377750865793216}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 13.712001, y: -82.832, z: 3.611}
 --- !u!4 &2120047630112312294
 Transform:
@@ -2682,7 +2682,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.3443396, g: 0.713825, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9817082, b: 0.7216981, a: 1}
   m_Intensity: 2
   m_Range: 75.43961
   m_SpotAngle: 31
@@ -3511,7 +3511,6 @@ Transform:
   m_Children:
   - {fileID: 6972934747451068702}
   - {fileID: 6972934745915564952}
-  - {fileID: 1955819003886337701}
   m_Father: {fileID: 6972934745918450922}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

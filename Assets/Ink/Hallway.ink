@@ -1,7 +1,5 @@
 === hallway ===
 
-{ ! I smell smoke from downstairs. }
-
 -> DONE
 
 === hallway_guest_room ===
