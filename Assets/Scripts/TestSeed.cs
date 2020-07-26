@@ -10,6 +10,7 @@ public class TestSeed : MonoBehaviour
     {
         if (!SceneManager.GetSceneByName("Main").isLoaded)
         {
+            Debug.Log("Using test seed");
             SceneManager.sceneLoaded += this.SceneLoaded;
             SceneManager.LoadSceneAsync("Main", LoadSceneMode.Additive);
         }
@@ -24,6 +25,7 @@ public class TestSeed : MonoBehaviour
             Debug.Log("Disabling story");
             content.runStoryOnStart = false;
         }
+        StateManager.singleton.SetCurrentScene(this.gameObject.scene);
         SceneManager.sceneLoaded -= this.SceneLoaded;
     }
 }

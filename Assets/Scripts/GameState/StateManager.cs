@@ -49,9 +49,15 @@ public class StateManager : MonoBehaviour
 
         SceneManager.sceneLoaded += (scene, mode) =>
         {
-            currentScene = scene;
+            SetCurrentScene(scene);
             SetPlayerPosition();
         };
+    }
+
+    public void SetCurrentScene(Scene scene)
+    {
+        Debug.Log("Setting current scene to " + scene.name);
+        currentScene = scene;
     }
 
     public void LoadScene(string sceneName, string entryPoint)

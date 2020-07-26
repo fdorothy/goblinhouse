@@ -61,7 +61,7 @@ public class RoomEditor : EditorWindow
         {
             for (int j = 0; j < p.height; j++)
             {
-                Transform t = Instantiate(p.floorPrefab);
+                Transform t = PrefabUtility.InstantiatePrefab(p.floorPrefab) as Transform;
                 t.position = new Vector3(i * p.spacing, 0, j * p.spacing);
                 t.SetParent(floor);
             }
@@ -91,7 +91,7 @@ public class RoomEditor : EditorWindow
         List<Transform> copies = new List<Transform>();
         for (int i = 0; i < n; i++)
         {
-            Transform t = Instantiate(obj);
+            Transform t = PrefabUtility.InstantiatePrefab(obj) as Transform;
             t.position = startPos + i * delta;
             t.localRotation = rotation;
             t.SetParent(parent.transform);
@@ -102,7 +102,7 @@ public class RoomEditor : EditorWindow
 
     Transform CopyTo(Transform obj, Vector3 position, Transform parent)
     {
-        Transform t = Instantiate(obj);
+        Transform t = PrefabUtility.InstantiatePrefab(obj) as Transform;
         t.position = position;
         t.SetParent(parent);
         return t;
