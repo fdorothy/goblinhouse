@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(Collider))]
 public class Clickable : MonoBehaviour
 {
     public string customTitle = "";

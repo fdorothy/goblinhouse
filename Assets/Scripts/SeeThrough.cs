@@ -49,11 +49,13 @@ public class SeeThrough : MonoBehaviour
     {
         if (seeThrough)
         {
-            meshRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            //meshRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             //tweener = meshRenderer.material.DOFade(0.0f, 1.0f);
         } else
         {
-            meshRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            //meshRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             //tweener = meshRenderer.material.DOFade(1.0f, 1.0f);
         }
     }
