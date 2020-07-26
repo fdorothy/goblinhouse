@@ -1,24 +1,20 @@
-=== groundlevel ===
+=== kitchen ===
 
 { ! Everyone is probably asleep. }
 { ! I should be quiet. }
 
 -> DONE
 
-=== groundlevel_upstairs ===
+=== kitchen_upstairs ===
 # scene: Hallway
-# position: FromGroundLevel
+# position: FromKitchen
 -> DONE
 
-=== groundlevel_frontdoor ===
-It's storming too much to go outside.
--> DONE
-
-=== groundlevel_gardendoor ===
+=== kitchen_garden ===
 It's storming too much to go out to the garden.
 -> DONE
 
-=== groundlevel_basement ===
+=== kitchen_livingroom ===
 It is too dark down there, and I don't have a flashlight.
 -> DONE
 

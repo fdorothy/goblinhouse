@@ -19,9 +19,9 @@ No answer.
 -> DONE
 
 === hallway_stairs ===
-# scene: GroundLevel
+# scene: Kitchen
 # position: FromUpstairs
--> groundlevel
+-> kitchen
 
 === hallway_window ===
 
