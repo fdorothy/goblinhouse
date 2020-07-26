@@ -1,5 +1,7 @@
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
+INCLUDE Groundlevel.ink
+
 
 
 -> intro
