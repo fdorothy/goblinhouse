@@ -16,13 +16,19 @@ public class Content : MonoBehaviour
     public bool skipNext = false;
     public float skipTimer = 3.0f;
     public bool tagsDone = true;
+    public bool runStoryOnStart = true;
 
     public void Start()
     {
         StateManager.singleton.content = this;
         state = StateManager.singleton.gameState;
         story = new Story(inkJson.text);
-        RunStory();
+        if (runStoryOnStart)
+            RunStory();
+        else
+        {
+            viewImage.DOFade(1.0f, 0.5f);
+        }
     }
 
     public void ProcessInput(string item, Clickable clickable)
