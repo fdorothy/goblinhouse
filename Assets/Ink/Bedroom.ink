@@ -1,37 +1,16 @@
-=== laptop ===
-
-{! -> first}
--> normal
-
-= first
-No Internet connection
+=== bedroom_laptop ===
+{ bedroom_laptop == 1 : No Internet connection}
+{ bedroom_laptop != 1 : Still no internet.}
 I think the router is in the living room downstairs.
 -> DONE
 
-= normal
-
-The internet is still off.
-I think the router is in the living room downstairs.
--> DONE
-
-=== window ===
-
-{! -> first}
--> normal
-
-= first
-A wet winter storm rages outside.
-You see the gravestones in the cemetary next door in a flash of lightning.
-In the flash, you see dark figures scurring amongst the stones.
--> DONE
-
-= normal
+=== bedroom_window ===
 The storm rages outside.
-You see the gravestones in the cemetary below in a flash of lightning.
+{ bedroom_window == 1 : You see the gravestones in the cemetary next door in a flash of lightning.}
+{ bedroom_window == 1 : In the flash, you see dark figures scurring amongst the stones.}
 -> DONE
 
-=== radio ===
-
+=== bedroom_radio ===
 {! -> first}
 -> normal
 
@@ -48,8 +27,12 @@ click...bzz
 I can't seem to find any stations
 -> DONE
 
-=== bearhead ===
-
+=== bedroom_bearhead ===
 A bear head?
 The owners must be hunters.
 -> DONE
+
+=== bedroom_door ===
+# scene: Hallway
+# position: FromBedroom
+-> hallway

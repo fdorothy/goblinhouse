@@ -45,7 +45,6 @@ public class StateManager : MonoBehaviour
     {
         gameState = new State();
         player = FindObjectOfType<Player>();
-        LoadScene(gameState.scene, gameState.entryPoint);
         loaded = true;
 
         SceneManager.sceneLoaded += (scene, mode) =>

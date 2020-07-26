@@ -15,6 +15,7 @@ public class Content : MonoBehaviour
     public float storyPace = 5.0f;
     public bool skipNext = false;
     public float skipTimer = 3.0f;
+    public bool tagsDone = true;
 
     public void Start()
     {
@@ -48,8 +49,13 @@ public class Content : MonoBehaviour
         while (story.canContinue)
         {
             string next = story.Continue();
+            ProcessTags();
+            yield return new WaitUntil(() => tagsDone);
             DialogueManager.singleton.CreateDialogue(trim(next), "main");
-            yield return new WaitUntil(() => skipNext);
+            if (trim(next) != "")
+            {
+                yield return new WaitUntil(() => skipNext);
+            }
             skipTimer = storyPace;
             if (skipNext)
             {
@@ -80,6 +86,41 @@ public class Content : MonoBehaviour
         }
     }
 
+    public void ProcessTags()
+    {
+        Dictionary<string, string> tags = GetTags();
+        if (tags.ContainsKey("scene") && tags.ContainsKey("position"))
+        {
+            tagsDone = false;
+            Debug.Log("loading scene: " + tags["scene"] + ", " + tags["position"]);
+            Sequence seq = DOTween.Sequence();
+            float originalAlpha = viewImage.color.a;
+            if (originalAlpha > 0.0f)
+                seq.Append(viewImage.DOFade(0.0f, 0.5f));
+            seq.AppendCallback(() => StateManager.singleton.LoadScene(tags["scene"], tags["position"]));
+            if (originalAlpha > 0.0f)
+                seq.Append(viewImage.DOFade(originalAlpha, 0.5f));
+            seq.OnComplete(() => tagsDone = true);
+        }
+    }
+
+    public Dictionary<string, string> GetTags()
+    {
+        Dictionary<string, string> lookup = new Dictionary<string, string>();
+        foreach (string tag in story.currentTags)
+        {
+            string[] tags = tag.Split(':');
+            if (tags.Length == 2)
+            {
+                string key = trim(tags[0]).ToLower();
+                string value = trim(tags[1]);
+                Debug.Log(key + ": " + value);
+                lookup[key] = value;
+            }
+        }
+        return lookup;
+    }
+
     public string trim(string text)
     {
         return text.Trim();
@@ -99,10 +140,16 @@ public class Content : MonoBehaviour
         if (!runningStory)
         {
             runningStory = true;
-            viewImage.DOFade(0.25f, 0.5f).OnComplete(() =>
+            ClickableManager.singleton.ClearCursor();
+            float originalAlpha = viewImage.color.a;
+            if (originalAlpha > 0.25f)
+            {
+                viewImage.DOFade(0.25f, 0.5f).OnComplete(() => StartCoroutine(StoryRoutine(cb)));
+            }
+            else
             {
                 StartCoroutine(StoryRoutine(cb));
-            });
+            }
         }
     }
 

@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Decor
-  inkPath: bearhead
+  inkPath: bedroom_bearhead
 --- !u!64 &738349159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: 
-  inkPath: window
+  inkPath: bedroom_window
 --- !u!64 &1401481261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1391,7 +1391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 916b84b3125d7b64688aeac55775153d, type: 3}
       propertyPath: m_Name
-      value: bear
+      value: bedroom_bear
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 916b84b3125d7b64688aeac55775153d, type: 3}
       propertyPath: m_TagString
@@ -1596,7 +1596,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 86edb943cf8f4de42ad5319d9e20e3d0, type: 3}
       propertyPath: m_Name
-      value: laptop
+      value: bedroom_laptop
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 86edb943cf8f4de42ad5319d9e20e3d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Laptop
-  inkPath: laptop
+  inkPath: bedroom_laptop
 --- !u!64 &6972934746197825132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2999,7 +2999,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f26d910f428347046bc87afb48016536, type: 3}
       propertyPath: m_Name
-      value: radio
+      value: bedroom_radio
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f26d910f428347046bc87afb48016536, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3078,7 +3078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Old Radio
-  inkPath: radio
+  inkPath: bedroom_radio
 --- !u!64 &6972934747645550002
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3165,6 +3165,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6972934746382425067}
     m_Modifications:
+    - target: {fileID: 100000, guid: cc0309c4da39e5947859a20be870ba5a, type: 3}
+      propertyPath: m_Name
+      value: bedroom_door
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: cc0309c4da39e5947859a20be870ba5a, type: 3}
       propertyPath: m_Name
       value: doorway
@@ -3234,12 +3238,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6972934747780617961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customTitle: Leave Bedroom
-  scene: Hallway
-  entryPoint: 
+  customTitle: Leave Room
+  inkPath: bedroom_door
 --- !u!64 &6972934747780617963
 MeshCollider:
   m_ObjectHideFlags: 0

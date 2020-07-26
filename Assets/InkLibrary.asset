@@ -18,11 +18,15 @@ MonoBehaviour:
     jsonAssetPath: {fileID: 0}
     jsonAsset: {fileID: 4900000, guid: 6cf48bb6d89824cc69e35b43f9a1aca6, type: 3}
   - compileAutomatically: 0
+    inkAsset: {fileID: 102900000, guid: 3360e0dba9b071847adde08ea99bd5d8, type: 3}
+    jsonAssetPath: {fileID: 0}
+    jsonAsset: {fileID: 0}
+  - compileAutomatically: 0
     inkAsset: {fileID: 102900000, guid: ee0a8a5c3d29bd14498640d51470438b, type: 3}
     jsonAssetPath: {fileID: 0}
     jsonAsset: {fileID: 4900000, guid: 1f0ecd2d3488fde459feb5cceb40e017, type: 3}
   - compileAutomatically: 0
-    inkAsset: {fileID: 102900000, guid: 3360e0dba9b071847adde08ea99bd5d8, type: 3}
+    inkAsset: {fileID: 102900000, guid: 7dc32fc90af3d2940ad38474bf9ce7ed, type: 3}
     jsonAssetPath: {fileID: 0}
     jsonAsset: {fileID: 0}
   pendingCompilationStack: []
