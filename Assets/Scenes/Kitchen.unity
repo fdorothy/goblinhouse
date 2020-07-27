@@ -3603,13 +3603,13 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Strength: 0.786
+    m_Bias: 0
+    m_NormalBias: 1.15
+    m_NearPlane: 1.36
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -3685,7 +3685,7 @@ PrefabInstance:
     - target: {fileID: 887004936322949800, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.42545
+      value: -19.5
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322949800, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}

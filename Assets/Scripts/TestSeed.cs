@@ -26,6 +26,7 @@ public class TestSeed : MonoBehaviour
             content.runStoryOnStart = false;
         }
         StateManager.singleton.SetCurrentScene(this.gameObject.scene);
+        FindObjectOfType<Player>().transform.position = transform.position;
         SceneManager.sceneLoaded -= this.SceneLoaded;
     }
 }
