@@ -1,6 +1,13 @@
-=== hallway ===
-
+=== hallway(_position) ===
+{ update_location("Hallway", _position, -> hallway) }
+{ cmdline == true : -> options }
 -> DONE
+
+= options
+
+ + [Your Bedroom] -> option(-> hallway_bedroom_door)
+ + [Guest Bedroom] -> option(-> hallway_guest_room)
+ + [Stairs Down] -> option(-> hallway_stairs)
 
 === hallway_guest_room ===
 
@@ -11,17 +18,13 @@
 ...
 No answer.
 
--> DONE
+->->
 
 === hallway_bedroom_door ===
-# scene: Bedroom
-# position: FromHallway
--> DONE
+-> bedroom("FromHallway")
 
 === hallway_stairs ===
-# scene: Kitchen
-# position: FromUpstairs
--> kitchen
+-> kitchen("FromUpstairs")
 
 === hallway_window ===
 
@@ -29,4 +32,4 @@ The storm rages outside.
 There is a cemetary below.
 You see a payphone at the edge of the cemetary.
 
--> DONE
+->->
