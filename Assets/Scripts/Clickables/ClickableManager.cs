@@ -25,23 +25,16 @@ public class ClickableManager : MonoBehaviour
     public Toast hoverToast;
     public static ClickableManager singleton;
 
+    protected int clickablesLayerMask;
+
     ClickableManager()
     {
         singleton = this;
     }
-
-
-
-
-
-
-
-
-
-
-
+    
     void Start()
     {
+        clickablesLayerMask = LayerMask.GetMask(new string[] { "clickables" });
         player = FindObjectOfType<Player>();
         cursorLookup = new Dictionary<CursorType, CursorVariant>();
         foreach (CursorVariant cursor in cursors)
@@ -118,13 +111,23 @@ public class ClickableManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !ClickableManager.singleton.IsHovering())
         {
             RaycastHit hit;
-            if (GetMouseTarget(out hit))
+            bool didHit = GetMouseTarget(out hit, clickablesLayerMask);
+            bool hitClickable = true;
+            if (!didHit)
             {
-                Transform t = hit.collider.transform;
-                if (t.GetComponent<Clickable>() != null)
+                hitClickable = false;
+                didHit = GetMouseTarget(out hit);
+            }
+            if (didHit)
+            {
+                if (hitClickable)
                 {
-                    Clickable clickable = t.GetComponent<Clickable>();
-                    clickable.MouseDown();
+                    Transform t = hit.collider.transform;
+                    if (t.GetComponent<Clickable>() != null)
+                    {
+                        Clickable clickable = t.GetComponent<Clickable>();
+                        clickable.MouseDown();
+                    }
                 }
                 else
                 {
@@ -138,7 +141,7 @@ public class ClickableManager : MonoBehaviour
     public void CheckHover()
     {
         RaycastHit hit;
-        if (GetMouseTarget(out hit))
+        if (GetMouseTarget(out hit, clickablesLayerMask))
         {
             Transform t = hit.collider.transform;
             if (t.GetComponent<Clickable>() != null)
@@ -150,10 +153,13 @@ public class ClickableManager : MonoBehaviour
             {
                 ClearCursor();
             }
+        } else
+        {
+            ClearCursor();
         }
     }
 
-    public bool GetMouseTarget(out RaycastHit hit)
+    public bool GetMouseTarget(out RaycastHit hit, int layerMask = 0)
     {
         float fixedRatio = 320.0f / 240.0f;
         float w = Screen.width;
@@ -178,7 +184,13 @@ public class ClickableManager : MonoBehaviour
         float my = Input.mousePosition.y;
         Vector3 v = new Vector3((mx - offsetX) / rw, (my - offsetY) / rh);
         Ray ray = Camera.main.ViewportPointToRay(v);
-        return Physics.Raycast(ray, out hit, 1000.0f);
+        if (layerMask != 0)
+        {
+            return Physics.Raycast(ray, out hit, 1000.0f, layerMask);
+        } else
+        {
+            return Physics.Raycast(ray, out hit, 1000.0f);
+        }
     }
 
     public void ClearLastClicked()

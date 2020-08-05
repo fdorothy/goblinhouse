@@ -551,7 +551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Decor
-  inkPath: bedroom_bearhead
 --- !u!64 &738349159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1071,7 +1070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: 
-  inkPath: bedroom_window
 --- !u!64 &1401481261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1337,6 +1335,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: scene
+      value: bedroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: position
+      value: FromStart
       objectReference: {fileID: 0}
     - target: {fileID: 2007759050824437822, guid: b03336bd06135484dad9ba2ea8f7b97a,
         type: 3}
@@ -2217,7 +2225,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 916b84b3125d7b64688aeac55775153d, type: 3}
       propertyPath: m_Name
-      value: BearHead
+      value: bearhead
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 916b84b3125d7b64688aeac55775153d, type: 3}
       propertyPath: m_TagString
@@ -2303,7 +2311,7 @@ GameObject:
   - component: {fileID: 6972934745806161479}
   - component: {fileID: 6972934745806161476}
   m_Layer: 0
-  m_Name: laptop
+  m_Name: laptop_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,7 +2342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 86edb943cf8f4de42ad5319d9e20e3d0, type: 3}
       propertyPath: m_Name
-      value: bedroom_laptop
+      value: laptop
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 86edb943cf8f4de42ad5319d9e20e3d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2425,9 +2433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Laptop
-  inkPath: bedroom_laptop
---- !u!64 &6972934746197825132
-MeshCollider:
+--- !u!65 &6972934746197825132
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2436,10 +2443,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 86edb943cf8f4de42ad5319d9e20e3d0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 6.000001, y: 3.677486, z: 5.4560266}
+  m_Center: {x: 2.9999995, y: 1.838742, z: 2.7280133}
 --- !u!4 &6972934746325793933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7123638183954036103, guid: 5689e6a09b94a9f4d84c48ca73265f01,
@@ -3011,7 +3017,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f26d910f428347046bc87afb48016536, type: 3}
       propertyPath: m_Name
-      value: bedroom_radio
+      value: radio
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f26d910f428347046bc87afb48016536, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3094,9 +3100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: Old Radio
-  inkPath: bedroom_radio
---- !u!64 &6972934747645550002
-MeshCollider:
+--- !u!65 &6972934747645550002
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3105,10 +3110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f26d910f428347046bc87afb48016536, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 3.1500013, y: 2.2819111, z: 0.9750004}
+  m_Center: {x: 1.5750003, y: 1.1409556, z: 0.48749995}
 --- !u!4 &6972934747654856748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5491287651600938724, guid: b1f6cfad36338264d990008364ecb807,
@@ -3205,7 +3209,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: Doorway
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}

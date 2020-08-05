@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 using DG.Tweening;
+using System.Text.RegularExpressions;
 
 public class Content : MonoBehaviour
 {
@@ -17,23 +18,51 @@ public class Content : MonoBehaviour
     public float skipTimer = 3.0f;
     public bool tagsDone = true;
     public bool runStoryOnStart = true;
+    public Dictionary<string, int> clickables = new Dictionary<string, int>();
+
+    public string startScene = "";
+    public string startPosition = "";
+
+    protected Regex clickChoiceRegex = new Regex(@":(?<option>(i|e)) (?<gameobject>\w+) (?<hovertext>.*)");
+    protected Regex sceneRegex = new Regex(@":(?<option>(scene)) (?<scene>\w+) (?<position>\w+)");
 
     public void Start()
     {
         StateManager.singleton.content = this;
         state = StateManager.singleton.gameState;
         story = new Story(inkJson.text);
+
+        // make sure the story is set to 'interactive' so that we can move around and
+        // click on things
+        story.variablesState["interactive"] = true;
+
         if (runStoryOnStart)
             RunStory();
         else
         {
             viewImage.DOFade(1.0f, 0.5f);
+            RunFrom(startScene, startPosition);
         }
+    }
+
+    public void RunFrom(string scene, string position)
+    {
+        object[] args = new object[] { position };
+        story.ChoosePathString(scene, true, args);
+        RunStory();
     }
 
     public void ProcessInput(string item, Clickable clickable)
     {
-        RunStory(item);
+        if (clickables.ContainsKey(item))
+        {
+            story.ChooseChoiceIndex(clickables[item]);
+            RunStory();
+        }
+        else
+        {
+            Debug.LogError("Could not find item in options: " + item);
+        }
     }
 
     public void Update()
@@ -54,31 +83,39 @@ public class Content : MonoBehaviour
         skipNext = false;
         while (story.canContinue)
         {
-            string next = story.Continue();
+            string next = trim(story.Continue());
+            bool showText = ProcessText(next);
+            yield return new WaitUntil(() => tagsDone);
             ProcessTags();
             yield return new WaitUntil(() => tagsDone);
-            DialogueManager.singleton.CreateDialogue(trim(next), "main");
-            if (trim(next) != "")
+            if (showText)
             {
-                yield return new WaitUntil(() => skipNext);
-            }
-            skipTimer = storyPace;
-            if (skipNext)
-            {
-                yield return new WaitForSeconds(0.25f);
+                DialogueManager.singleton.CreateDialogue(next, "main");
+                if (next != "")
+                {
+                    yield return new WaitUntil(() => skipNext);
+                }
+                skipTimer = storyPace;
+                if (skipNext)
+                {
+                    yield return new WaitForSeconds(0.25f);
+                }
             }
             skipNext = false;
         }
+        yield return new WaitUntil(() => tagsDone);
         ShowChoices();
     }
 
     public void ShowChoices()
     {
         DialogueManager dm = DialogueManager.singleton;
+        clickables.Clear();
         if (story.currentChoices.Count > 0)
         {
             foreach (Choice choice in story.currentChoices)
             {
+                ProcessChoice(choice);
                 dm.ShowChoice(trim(choice.text), () =>
                 {
                     story.ChooseChoiceIndex(choice.index);
@@ -86,27 +123,72 @@ public class Content : MonoBehaviour
                 });
             }
         }
-        else
+        StopStory();
+    }
+
+    public void ProcessChoice(Choice choice)
+    {
+        Match m = clickChoiceRegex.Match(choice.text);
+        if (m.Success)
         {
-            StopStory();
+            string goName = m.Groups["gameobject"].Value;
+            GameObject go = GameObject.Find(m.Groups["gameobject"].Value);
+            if (go)
+            {
+                Clickable c = go.GetComponent<Clickable>();
+                if (c)
+                {
+                    string hoverText = m.Groups["hovertext"].Value;
+                    Debug.Log("found " + goName + " and setting custom title to " + hoverText);
+                    c.customTitle = hoverText;
+                    clickables[goName] = choice.index;
+                }
+                else
+                {
+                    Debug.LogError("Missing clickable on game object: " + goName);
+                }
+            }
+            else
+            {
+                Debug.LogError("Could not find game object for clickable: " + goName);
+            }
         }
+    }
+
+    public bool ProcessText(string text)
+    {
+        Match m = sceneRegex.Match(text);
+        if (m.Success)
+        {
+            string scene = m.Groups["scene"].Value;
+            string position = m.Groups["position"].Value;
+            tagsDone = false;
+            Debug.Log("loading scene: " + scene);
+            Sequence seq = DOTween.Sequence();
+            float originalAlpha = viewImage.color.a;
+            if (originalAlpha > 0.0f)
+                seq.Append(viewImage.DOFade(0.0f, 0.5f));
+            seq.AppendCallback(() => StateManager.singleton.LoadScene(scene, position, () =>
+            {
+                tagsDone = true;
+            }));
+            if (originalAlpha > 0.0f)
+                seq.Append(viewImage.DOFade(originalAlpha, 0.5f));
+            return false;
+        }
+        return true;
     }
 
     public void ProcessTags()
     {
         Dictionary<string, string> tags = GetTags();
-        if (tags.ContainsKey("scene") && tags.ContainsKey("position"))
+        if (tags.ContainsKey("Clickables"))
         {
-            tagsDone = false;
-            Debug.Log("loading scene: " + tags["scene"] + ", " + tags["position"]);
-            Sequence seq = DOTween.Sequence();
-            float originalAlpha = viewImage.color.a;
-            if (originalAlpha > 0.0f)
-                seq.Append(viewImage.DOFade(0.0f, 0.5f));
-            seq.AppendCallback(() => StateManager.singleton.LoadScene(tags["scene"], tags["position"]));
-            if (originalAlpha > 0.0f)
-                seq.Append(viewImage.DOFade(originalAlpha, 0.5f));
-            seq.OnComplete(() => tagsDone = true);
+            switch (tags["clickables"])
+            {
+                case "clear": clickables.Clear(); break;
+                default: break;
+            }
         }
     }
 
@@ -136,7 +218,7 @@ public class Content : MonoBehaviour
     {
         if (!runningStory)
         {
-            story.ChoosePathString(path);
+            story.ChoosePathString(path, false);
             RunStory(cb);
         }
     }

@@ -12,6 +12,11 @@ public class Clickable : MonoBehaviour
         return CursorType.DEFAULT;
     }
 
+    public void Start()
+    {
+        gameObject.layer = LayerMask.NameToLayer("clickables");
+    }
+
     public virtual string GetTitle()
     {
         if (customTitle.Length > 0)

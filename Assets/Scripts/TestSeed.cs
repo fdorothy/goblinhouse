@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TestSeed : MonoBehaviour
 {
+    public string scene = "";
+    public string position = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class TestSeed : MonoBehaviour
         {
             Debug.Log("Disabling story");
             content.runStoryOnStart = false;
+            content.startScene = this.scene;
+            content.startPosition = this.position;
         }
         StateManager.singleton.SetCurrentScene(this.gameObject.scene);
         FindObjectOfType<Player>().transform.position = transform.position;

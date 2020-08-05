@@ -60,7 +60,7 @@ public class StateManager : MonoBehaviour
         currentScene = scene;
     }
 
-    public void LoadScene(string sceneName, string entryPoint)
+    public void LoadScene(string sceneName, string entryPoint, System.Action cb = null)
     {
         Debug.Log("Load scene " + sceneName + " at " + entryPoint);
         gameState.scene = sceneName;
@@ -74,7 +74,11 @@ public class StateManager : MonoBehaviour
         }
 
         var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync(sceneName, parameters);
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, parameters);
+        op.completed += (AsyncOperation obj) =>
+        {
+            cb.Invoke();
+        };
     }
 
     void SetPlayerPosition()
@@ -82,7 +86,9 @@ public class StateManager : MonoBehaviour
         GameObject entryPoint = GameObject.Find(gameState.entryPoint);
         if (entryPoint)
         {
-            player.transform.position = entryPoint.transform.position;
+            Debug.Log("Found entry point " + gameState.entryPoint + ", " + entryPoint.transform.position);
+            player.SetDestination(entryPoint.transform.position);
+            player.agent.Warp(entryPoint.transform.position);
         }
         else
         {

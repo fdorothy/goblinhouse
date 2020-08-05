@@ -1,35 +1,31 @@
 === hallway(_position) ===
-{ update_location("Hallway", _position, -> hallway) }
-{ cmdline == true : -> options }
--> DONE
+{ update_location("Hallway", _position) }
+-> options
 
 = options
 
- + [Your Bedroom] -> option(-> hallway_bedroom_door)
- + [Guest Bedroom] -> option(-> hallway_guest_room)
- + [Stairs Down] -> option(-> hallway_stairs)
+ + [{exit("bedroom", "Your Bedroom")}] -> bedroom_door
+ + [{exit("guestroom", "Guest Bedroom")}] <- guestroom_door
+ + [{exit("stairs", "Stairs Down")}] -> stairs
+ + [{investigate("window", "Window")}] -> window
+ - -> options
 
-=== hallway_guest_room ===
-
+= guestroom_door
 { ! This is the other guest's room. }
 { ! I think her name is Julia. }
-
 "*knock* *knock*"
 ...
 No answer.
+-> DONE
 
-->->
-
-=== hallway_bedroom_door ===
+= bedroom_door
 -> bedroom("FromHallway")
 
-=== hallway_stairs ===
+= stairs
 -> kitchen("FromUpstairs")
 
-=== hallway_window ===
-
+= window
 The storm rages outside.
 There is a cemetary below.
 You see a payphone at the edge of the cemetary.
-
-->->
+-> DONE

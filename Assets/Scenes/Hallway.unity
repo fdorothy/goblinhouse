@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: GuestroomDoor
+      value: guestroom
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 227341147}
   - component: {fileID: 227341146}
   m_Layer: 0
-  m_Name: Downstairs
+  m_Name: stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,7 +696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: downstairs
-  inkPath: hallway_stairs
 --- !u!64 &227341147
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1166,8 +1165,8 @@ Transform:
   - {fileID: 849180635}
   - {fileID: 1016693005}
   - {fileID: 1385900242}
-  - {fileID: 596705555}
   - {fileID: 1405403518}
+  - {fileID: 596705555}
   m_Father: {fileID: 1494487274}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2304,7 +2303,7 @@ GameObject:
   - component: {fileID: 1381642005}
   - component: {fileID: 1381642004}
   m_Layer: 0
-  m_Name: Window
+  m_Name: window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2350,7 +2349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: window
-  inkPath: hallway_window
 --- !u!64 &1381642005
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2725,6 +2723,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSeed
       objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: scene
+      value: hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: position
+      value: FromBedroom
+      objectReference: {fileID: 0}
     - target: {fileID: 2007759050824437822, guid: b03336bd06135484dad9ba2ea8f7b97a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2792,7 +2800,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: BedroomDoor
+      value: bedroom
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
