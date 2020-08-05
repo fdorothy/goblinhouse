@@ -6,6 +6,8 @@ VAR DEBUG = false
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
 INCLUDE Kitchen.ink
+INCLUDE LivingRoom.ink
+
 
 <- intro
 

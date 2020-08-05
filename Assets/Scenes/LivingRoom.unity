@@ -506,36 +506,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 144629640}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &147707828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 147707829}
-  m_Layer: 0
-  m_Name: FromGarden
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &147707829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147707828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.73, y: 0, z: -6.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1578015046}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &155491751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,7 +581,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 155491751}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &159092222
+--- !u!1 &180845930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,72 +589,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 159092226}
-  - component: {fileID: 159092225}
-  - component: {fileID: 159092224}
-  - component: {fileID: 159092223}
+  - component: {fileID: 180845931}
+  - component: {fileID: 180845932}
+  - component: {fileID: 180845933}
   m_Layer: 0
-  m_Name: Basement
+  m_Name: basement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &159092223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159092222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customTitle: Basement
-  inkPath: livingroom_basement
---- !u!64 &159092224
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159092222}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!65 &159092225
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159092222}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &159092226
+--- !u!4 &180845931
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159092222}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.56, y: 44.45, z: -18.63}
+  m_GameObject: {fileID: 180845930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45, y: 48.1, z: -18.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 775324419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &180845932
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180845930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &180845933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180845930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTitle: 
 --- !u!1001 &185783061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1031,40 +985,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412f2b025ea59c6439fbd11f9713d7d6, type: 3}
---- !u!1 &272480287 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 412f2b025ea59c6439fbd11f9713d7d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 272480286}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &272480288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272480287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customTitle: Basement
-  inkPath: groundlevel_basement
---- !u!64 &272480289
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272480287}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9127120572191758296, guid: 412f2b025ea59c6439fbd11f9713d7d6, type: 3}
 --- !u!4 &272480290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 412f2b025ea59c6439fbd11f9713d7d6,
@@ -2429,7 +2349,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: MasterDoor
+      value: masterdoor
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322949800, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
@@ -3197,7 +3117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578015046}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &766086256
 PrefabInstance:
@@ -3301,10 +3221,11 @@ Transform:
   m_LocalPosition: {x: 59.955727, y: -43.144855, z: 58.63475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 159092226}
+  - {fileID: 180845931}
   - {fileID: 1293688144}
   - {fileID: 663897875}
   - {fileID: 1461299391}
+  - {fileID: 1700178641}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4001,7 +3922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971938379}
   m_Layer: 0
-  m_Name: FromUpstairs
+  m_Name: FromKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4015,7 +3936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971938378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.8, y: 0, z: -9.63}
+  m_LocalPosition: {x: 30, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578015046}
@@ -4192,7 +4113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578015046}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1063842134
 PrefabInstance:
@@ -5025,7 +4946,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: FrontDoor
+      value: frontdoor
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322949800, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
@@ -5574,7 +5495,7 @@ PrefabInstance:
     - target: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
       propertyPath: m_Name
-      value: KitchenDoor
+      value: kitchendoor
       objectReference: {fileID: 0}
     - target: {fileID: 887004936322949800, guid: dc321bc65eaed65419913e02de0a2f31,
         type: 3}
@@ -5902,7 +5823,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 971938379}
-  - {fileID: 147707829}
   - {fileID: 763839383}
   - {fileID: 1057203017}
   m_Father: {fileID: 0}
@@ -6436,6 +6356,64 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1672689497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700178640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700178641}
+  - component: {fileID: 1700178643}
+  - component: {fileID: 1700178642}
+  m_Layer: 0
+  m_Name: router
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700178641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700178640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -46.97, y: 49.11, z: -60.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 775324419}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700178642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700178640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTitle: 
+--- !u!135 &1700178643
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700178640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1719528866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6602,6 +6580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: scene
+      value: livingroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
+        type: 3}
+      propertyPath: position
+      value: FromKitchen
       objectReference: {fileID: 0}
     - target: {fileID: 2007759050824437822, guid: b03336bd06135484dad9ba2ea8f7b97a,
         type: 3}
