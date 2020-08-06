@@ -18,7 +18,13 @@
  - -> options
  
 = masterdoor
-The door is locked.
+{ wires == 0:
+    This is the landlords' room.
+    I shouldn't bother them in the middle of the night.
+    I should just find and reset the router.
+  - else:
+    -> masterbedroom("FromLivingRoom")
+}
 ->->
 
 = basement
@@ -26,7 +32,13 @@ It is much too dark to go down there.
 ->->
 
 = frontdoor
-The door is locked.
+{ wires == 0:
+    It's storming too much to go outside.
+  - else:
+    The door won't budge.
+    Odd, why would they lock it from the outside?
+    Isn't that a big fire hazard?
+}
 ->->
 
 = wires

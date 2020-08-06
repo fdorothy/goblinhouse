@@ -7,6 +7,8 @@ INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
 INCLUDE Kitchen.ink
 INCLUDE LivingRoom.ink
+INCLUDE MasterBedroom.ink
+
 
 
 <- intro
@@ -17,6 +19,10 @@ As you stare at the ceiling, you remember you're on vacation.
 You are unsure what time it is, but the storm outside makes it hard to sleep.
 You wonder if the tour will be canceled. Better check the laptop.
 -> bedroom("FromStart")
+
+=== gameover ===
+YOU DIED
+-> DONE
 
 == function update_location(_scene, _position)
 
