@@ -12,12 +12,16 @@ public class DialogueVariant
 public class DialogueManager : MonoBehaviour
 {
     public List<DialogueVariant> dialoguePrefabs;
+    public DialogueChoice choicePrefab;
+    public Choices choicesPrefab;
 
     public Transform dialogueParent;
     public static DialogueManager singleton;
     public bool runningConversation = false;
 
     protected List<Dialogue> dialogues = new List<Dialogue>();
+    protected List<DialogueChoice> choices = new List<DialogueChoice>();
+    protected Choices choicesRow;
 
     public void Awake()
     {
@@ -45,6 +49,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void KillAllChoices()
+    {
+        if (choicesRow != null)
+        {
+            Destroy(choicesRow.gameObject);
+        }
+    }
+
     public Dialogue GetDialogue(string actor)
     {
         DialogueVariant v = dialoguePrefabs.Find(x => x.actor == actor);
@@ -59,6 +71,17 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowChoice(string text, System.Action cb)
     {
-        // do nothing for now
+        if (choicesRow == null)
+        {
+            choicesRow = Instantiate<Choices>(choicesPrefab, dialogueParent);
+            KillAllDialogues();
+        }
+        DialogueChoice dc = Instantiate<DialogueChoice>(choicePrefab);
+        choicesRow.AddChoice(dc);
+        dc.RunChoice(text, () =>
+        {
+            KillAllChoices();
+            cb.Invoke();
+        });
     }
 }

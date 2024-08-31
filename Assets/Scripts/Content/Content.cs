@@ -111,22 +111,28 @@ public class Content : MonoBehaviour
     {
         DialogueManager dm = DialogueManager.singleton;
         clickables.Clear();
+        bool canContinue = true;
         if (story.currentChoices.Count > 0)
         {
             foreach (Choice choice in story.currentChoices)
             {
-                ProcessChoice(choice);
-                dm.ShowChoice(trim(choice.text), () =>
+                if (!ProcessClickableChoice(choice))
                 {
-                    story.ChooseChoiceIndex(choice.index);
-                    StartCoroutine(StoryRoutine());
-                });
+                    // manually show the choice and keep on showing the story!
+                    canContinue = false;
+                    dm.ShowChoice(trim(choice.text), () =>
+                    {
+                        story.ChooseChoiceIndex(choice.index);
+                        StartCoroutine(StoryRoutine());
+                    });
+                }
             }
         }
-        StopStory();
+        if (canContinue)
+            StopStory();
     }
 
-    public void ProcessChoice(Choice choice)
+    public bool ProcessClickableChoice(Choice choice)
     {
         Match m = clickChoiceRegex.Match(choice.text);
         if (m.Success)
@@ -152,7 +158,9 @@ public class Content : MonoBehaviour
             {
                 Debug.LogError("Could not find game object for clickable: " + goName);
             }
+            return true;
         }
+        return false;
     }
 
     public bool ProcessText(string text)

@@ -129,6 +129,8 @@ MonoBehaviour:
     prefab: {fileID: 879976963294336618, guid: a0bea0499c6cb8e4e83f72a2aa3044dc, type: 3}
   - actor: other
     prefab: {fileID: 879976963294336618, guid: d5189f45249042e47b6dc171ecc9e5b1, type: 3}
+  choicePrefab: {fileID: 5178748920007027774, guid: 777e444d1ff7d5145b8ea1614fcc44c6,
+    type: 3}
   dialogueParent: {fileID: 0}
   runningConversation: 0
 --- !u!1 &7996941087662355082
@@ -292,3 +294,6 @@ MonoBehaviour:
   skipNext: 0
   skipTimer: 3
   tagsDone: 1
+  runStoryOnStart: 1
+  startScene: 
+  startPosition: 
