@@ -8,8 +8,8 @@
 # clickables: clear
 
  + [{ investigate("dirt", "Dirt") }] -> investigate_dirt ->
- + [{ exit("door", "Go Inside") }] -> livingroom("FromOutside")
- + [{ exit("shed", "Go Inside") }] -> shed("FromOutside")
+ + [{ exit("door", "House") }] -> livingroom("FromOutside")
+ + [{ exit("shed", "Shed") }] -> shed("FromOutside")
  + [{ exit("road", "Road") }] -> road("FromCemetary")
  - -> options
 
