@@ -11,10 +11,11 @@
 # clickables: clear
 
  + [{ investigate("router", "Wires") }] -> wires ->
+ + [{ investigate("cat", "Cat") }] -> cat ->
  + [{ exit("kitchendoor", "Kitchen") }] -> kitchen("FromLivingRoom")
  + [{ exit("frontdoor", "Front Door") }] -> frontdoor ->
  + [{ exit("masterdoor", "Landlord's Bedroom") }] -> masterdoor ->
- + [{ exit("basement", "Dark Basement") }] -> basement ->
+ + [{ exit("basement", "Dark Basement") }] -> basement_stairs ->
  - -> options
  
 = masterdoor
@@ -27,7 +28,7 @@
 }
 ->->
 
-= basement
+= basement_stairs
 It is much too dark to go down there.
 ->->
 
@@ -35,11 +36,26 @@ It is much too dark to go down there.
 { wires == 0:
     It's storming too much to go outside.
   - else:
-    The door won't budge.
-    Odd, why would they lock it from the outside?
-    Isn't that a big fire hazard?
+    { not house_key:
+        The door won't budge.
+        There is a padlock on it, I need a key.
+        Isn't that a big fire hazard?
+    }
+    { house_key:
+        { ! You unlock the padlock }
+        -> go_outside
+    }
 }
 ->->
+
+= go_outside
+{ rainboots:
+    -> cemetary("FromHouse")
+- else:
+    You take a few steps outside and are stuck in the mud.
+    You feel a knife stab into your back.
+    -> gameover
+}
 
 = wires
 { ! Wires protrude from the wall where the router once was. }
@@ -47,3 +63,37 @@ It is much too dark to go down there.
 Maybe the landlords know what is going on.
 { wires > 1: I should ask them. Their room was on the first floor. }
 ->->
+
+= cat
+{ holding == "treats":
+    -> caught_the_cat ->
+  - else:
+    -> cat_slips_away ->
+}
+->->
+
+= caught_the_cat
+You catch the cat in your hands.
+He struggles, but you feed him a treat and he calms down
+~ holding = ""
+{ not master_key:
+    -> taking_the_key_from_cat ->
+ - else:
+    The cat has nothing on them.
+    + [Put down the cat] ->->
+}
+->->
+
+= taking_the_key_from_cat
+The cat has a key on his collar.
+ + [take key] ->
+    You take the key
+    ~ master_key = true
+ + [leave]
+ - ->->
+ 
+ = cat_slips_away
+ You struggle to catch the cat with your hands.
+ "Hiss"
+ The cat slips away
+ ->->

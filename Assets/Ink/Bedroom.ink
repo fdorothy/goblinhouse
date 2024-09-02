@@ -12,8 +12,18 @@
  + [{investigate("bearhead", "Odd Decor")}]
     A bear head?
     The owners must be hunters.
- + [{exit("door", "Leave")}] -> hallway("FromBedroom")
+ + [{exit("door", "Leave")}] -> leave_bedroom ->
  - -> options
+ 
+= leave_bedroom
+
+{ laptop:
+    -> hallway("FromBedroom")
+ - else:
+    You go to open the door, but think twice.
+    You should check your laptop.
+}
+->->
 
 = laptop
 { laptop == 1 : No Internet connection}

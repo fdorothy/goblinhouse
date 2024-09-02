@@ -3,13 +3,24 @@ VAR position = ""
 VAR interactive = false
 VAR DEBUG = false
 
+// global game variables
+VAR master_key = false
+VAR house_key = false
+VAR rainboots = false
+VAR hallway_light = false
+VAR coins = false
+VAR holding = ""
+
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
 INCLUDE Kitchen.ink
 INCLUDE LivingRoom.ink
 INCLUDE MasterBedroom.ink
-
-
+INCLUDE Basement.ink
+INCLUDE Cemetary.ink
+INCLUDE Shed.ink
+INCLUDE Road.ink
+INCLUDE GuestRoom.ink
 
 <- intro
 
@@ -24,6 +35,10 @@ You wonder if the tour will be canceled. Better check the laptop.
 
 === gameover ===
 YOU DIED
+-> DONE
+
+=== win ===
+YOU WIN
 -> DONE
 
 == function update_location(_scene, _position)
@@ -60,3 +75,7 @@ YOU DIED
 == function exit(object, text)
 
 ~ return opt("e", object, text)
+
+== function take(item)
+
+~ holding = item

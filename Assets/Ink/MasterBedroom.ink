@@ -23,26 +23,33 @@ The floor boards are broken upwards at the center, as if a beast tore his way up
 { ! You hear a ghostly whisper from the opening. }
 
  + [Go down]
-   You hop down the hole.
-   It is dark down here.
-   You cannot see an exit.
-   + + [Light a match]
-     You fumble around your pockets for a match.
-     You feel something touching your leg.
-     + + + [Scream]
-     + + + [Keep Calm]
-       You find and light the match.
-       You see the killer's face, ugly in the match's light.
-   + + [Cry for help]
-     You yell, but no one hears you.
-     You feel something touching your leg.
-     + + + [Scream]
-   - -
-     Oh, god!
-     -> gameover
+    You hop down the hole.
+    { holding == "flashlight":
+        -> basement("FromMaster")
+      - else:
+        -> hole_death ->
+    }
  + [Back away]
    You back away from the hole in the floor.
  - ->->
+ 
+= hole_death
+It is dark down here.
+You cannot see an exit.
+ + [Light a match]
+    You fumble around your pockets for a match.
+    You feel something touching your leg.
+    + + [Scream]
+    + + [Keep Calm]
+        You find and light the match.
+        You see the killer's face, ugly in the match's light.
+    + + [Cry for help]
+        You yell, but no one hears you.
+        You feel something touching your leg.
+    + + [Scream]
+ -
+    Oh, god!
+    -> gameover
 
 = sheets
 Something terrible happened here.
