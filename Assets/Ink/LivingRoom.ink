@@ -15,7 +15,6 @@
  + [{ exit("kitchendoor", "Kitchen") }] -> kitchen("FromLivingRoom")
  + [{ exit("frontdoor", "Front Door") }] -> frontdoor ->
  + [{ exit("masterdoor", "Landlord's Bedroom") }] -> masterdoor ->
- + [{ exit("basement", "Dark Basement") }] -> basement_stairs ->
  - -> options
  
 = masterdoor
@@ -26,10 +25,6 @@
   - else:
     -> masterbedroom("FromLivingRoom")
 }
-->->
-
-= basement_stairs
-It is much too dark to go down there.
 ->->
 
 = frontdoor
