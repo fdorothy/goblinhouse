@@ -10,7 +10,6 @@
  + [{exit("guestroom", "Guest Bedroom")}] -> guestroom_door ->
  + [{exit("stairs", "Stairs Down")}] -> stairs ->
  + [{investigate("window", "Window")}] -> bedroom.window ->
- + [{investigate("light", "Light Switch")}] -> lightswitch ->
  - -> options
 
 = guestroom_door
@@ -36,18 +35,9 @@ The door cracks opens, and Julia peeks out.
 -> bedroom("FromHallway") -> DONE
 
 = stairs
-{ not hallway_light: -> stairs_death }
 -> kitchen("FromUpstairs") -> DONE
 
 = stairs_death
 
 You fall down the stairs in the darkness and break your neck.
 -> gameover
-
-= lightswitch
-
- + [Turn On] You turn on the light
-    ~ hallway_light = true
- + [Turn Off] You turn off the light
-    ~ hallway_light = false
- - ->->
