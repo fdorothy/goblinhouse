@@ -30,19 +30,7 @@ public class Content : MonoBehaviour
     {
         StateManager.singleton.content = this;
         state = StateManager.singleton.gameState;
-        story = new Story(inkJson.text);
-
-        // make sure the story is set to 'interactive' so that we can move around and
-        // click on things
-        story.variablesState["interactive"] = true;
-
-        if (runStoryOnStart)
-            RunStory();
-        else
-        {
-            viewImage.DOFade(1.0f, 0.5f);
-            RunFrom(startScene, startPosition);
-        }
+        RestartStory();
     }
 
     public void RunFrom(string scene, string position)
@@ -258,6 +246,23 @@ public class Content : MonoBehaviour
             {
                 runningStory = false;
             });
+        }
+    }
+
+    public void RestartStory()
+    {
+        story = new Story(inkJson.text);
+
+        // make sure the story is set to 'interactive' so that we can move around and
+        // click on things
+        story.variablesState["interactive"] = true;
+
+        if (runStoryOnStart)
+            RunStory();
+        else
+        {
+            viewImage.DOFade(1.0f, 0.5f);
+            RunFrom(startScene, startPosition);
         }
     }
 }

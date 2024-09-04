@@ -35,6 +35,7 @@ You wonder if the tour will be canceled. Better check the laptop.
 
 === gameover ===
 YOU DIED
+:scene Death Anywhere
 -> DONE
 
 === win ===
