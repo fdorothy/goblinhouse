@@ -12,6 +12,20 @@
  + [{investigate("bearhead", "Odd Decor")}]
     A bear head?
     The owners must be hunters.
+    + + [touch it]
+        The fur is surprisingly bristly.
+        Not at all like the teddy bears of your youth.
+        You see something in its mouth.
+        + + + [take it]
+            It's a note.
+            + + + + [read]
+                "Hope not to see Heaven"
+                "I have come to lead you to the other shore"
+                "into eternal darkness"
+                "into fire and into ice."
+            + + + + [leave it]
+        + + + [leave it]
+    + + [leave it]
  + [{exit("door", "Leave")}] -> leave_bedroom ->
  - -> options
  
