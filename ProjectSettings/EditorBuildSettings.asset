@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shed.unity
     guid: 4c6fd58d125147e4cb46fc1754aa56ac
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 46f33b91f7712cb46993b3de0e32af78
   m_configObjects: {}

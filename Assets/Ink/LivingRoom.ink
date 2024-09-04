@@ -23,9 +23,26 @@
     I shouldn't bother them in the middle of the night.
     I should just find and reset the router.
   - else:
-    -> masterbedroom("FromLivingRoom")
+    -> masterdoor_check_lock
 }
 ->->
+
+= masterdoor_check_lock
+{ master_key:
+    You use the cat's key to unlock the door.
+    -> masterbedroom("FromLivingRoom")
+- else:
+    -> masterdoor_locked ->->
+}
+
+= masterdoor_locked
+The door is locked.
++ [knock]
+    "*knock* *knock*"
+    ...
+    No reply.
++ [leave]
+- ->->
 
 = frontdoor
 { wires == 0:
