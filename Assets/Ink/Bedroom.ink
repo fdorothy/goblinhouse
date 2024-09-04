@@ -35,7 +35,35 @@ I think the router is in the living room downstairs.
 The storm rages outside.
 { window == 1 : You see the gravestones in the cemetary next door in a flash of lightning.}
 { window == 1 : In the flash, you see dark figures scurring amongst the stones.}
-->->
+ + [open window]
+   You slide the window open.
+   The humid air seeps into the room.
+    + + [crawl out the window]
+        You crawl out the window.
+        You are now perched on a thin slant of roof.
+        The rain poors down around you.
+        + + + [jump down]
+            You jump off the roof.
+            You fall, breaking your leg when you hit the ground.
+            + + + + [cry for help]
+                Something hears your cry.
+                A strange being approaches you in the rain.
+                They have a knife in their hand.
+                + + + + + [fight]
+                    You raise your hands in self defense.
+                    It is no good, the knife jabs deep into your flesh.
+                    You fall over face down, gasping for breath.
+                    -> gameover
+                + + + + + [run]
+                    You hobble on your good leg away from the thing.
+                    You make it a few yards before feeling the knife enter your back.
+                    -> gameover
+        + + + [go back inside]
+            You crawl back inside the window, leaving the precipice behind.
+            
+    + + [close window]
+ + [nevermind]
+ - ->->
 
 = radio
 {! -> radio_first ->->}
