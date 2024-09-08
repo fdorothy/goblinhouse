@@ -28,9 +28,9 @@ public class DialogueManager : MonoBehaviour
         singleton = this;
     }
 
-    public void CreateDialogue(string text, string actor)
+    public void CreateDialogue(string text, string actor, bool smooth)
     {
-        dialogues.ForEach((Dialogue dialog) => dialog.Shift(true));
+        dialogues.ForEach((Dialogue dialog) => dialog.Shift(smooth));
         Dialogue d = Instantiate<Dialogue>(GetDialogue(actor), dialogueParent);
         d.transform.SetParent(dialogueParent);
         d.targetPosition = d.transform.position;

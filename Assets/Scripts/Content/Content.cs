@@ -18,6 +18,7 @@ public class Content : MonoBehaviour
     public float skipTimer = 3.0f;
     public bool tagsDone = true;
     public bool runStoryOnStart = true;
+    bool startOfStory = true;
     public Dictionary<string, int> clickables = new Dictionary<string, int>();
 
     public string startScene = "";
@@ -79,7 +80,7 @@ public class Content : MonoBehaviour
             yield return new WaitUntil(() => tagsDone);
             if (showText && next != "")
             {
-                DialogueManager.singleton.CreateDialogue(next, "main");
+                DialogueManager.singleton.CreateDialogue(next, "main", !startOfStory);
                 if (next != "")
                 {
                     yield return new WaitUntil(() => skipNext);
@@ -88,7 +89,8 @@ public class Content : MonoBehaviour
                 skipTimer = storyPace;
                 if (skipNext)
                 {
-                    yield return new WaitForSeconds(0f);
+                    if (!startOfStory)
+                        yield return new WaitForSeconds(1f);
                 }
             }
         }
@@ -98,6 +100,7 @@ public class Content : MonoBehaviour
             skipNext = false;
             yield return new WaitUntil(() => skipNext);
         }
+        startOfStory = false;
         ShowChoices();
     }
 
@@ -251,10 +254,14 @@ public class Content : MonoBehaviour
             float originalAlpha = viewImage.color.a;
             if (originalAlpha > 0.25f)
             {
-                viewImage.DOFade(0.25f, 0.5f).OnComplete(() => StartCoroutine(StoryRoutine(cb)));
+                viewImage.DOFade(0.25f, 0.5f).OnComplete(() => {
+                    startOfStory = true;
+                    StartCoroutine(StoryRoutine(cb));
+                });
             }
             else
             {
+                startOfStory = true;
                 StartCoroutine(StoryRoutine(cb));
             }
         }
