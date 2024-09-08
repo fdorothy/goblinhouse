@@ -413,12 +413,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7996941087598447008, guid: 580280679c3d8e847998a4f123dc2d96,
         type: 3}
-      propertyPath: choicesPrefab
-      value: 
-      objectReference: {fileID: 8512966845199286322, guid: bd91eb5b42848a8439498c799727d25b,
-        type: 3}
-    - target: {fileID: 7996941087598447008, guid: 580280679c3d8e847998a4f123dc2d96,
-        type: 3}
       propertyPath: dialogueParent
       value: 
       objectReference: {fileID: 820234036}
