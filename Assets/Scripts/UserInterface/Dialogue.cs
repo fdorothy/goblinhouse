@@ -13,10 +13,12 @@ public class Dialogue : MonoBehaviour
     public static float fadetime = 2.0f;
     public static float shiftSpeed = 0.5f;
     public bool destroying = false;
+    public Vector3 targetPosition = Vector3.zero;
 
     private void Start()
     {
         panel.alpha = 0.0f;
+        targetPosition = transform.position;
     }
 
     public void RunDialogue(string text)
@@ -40,14 +42,20 @@ public class Dialogue : MonoBehaviour
         });
     }
 
-    public void Shift()
+    public void Shift(bool smooth)
     {
         if (shifter != null && shifter.IsActive())
         {
             shifter.Kill(true);
             shifter = null;
+            transform.position = targetPosition;
         }
-        shifter = transform.DOMoveY(transform.position.y + GetHeight(), shiftSpeed, false);
+        float targetY = transform.position.y + GetHeight();
+        targetPosition = new Vector3(transform.position.x, targetY, transform.position.z);
+        if (smooth)
+            shifter = transform.DOMove(targetPosition, shiftSpeed, false);
+        else
+            transform.position = targetPosition;
     }
 
     public float GetHeight()

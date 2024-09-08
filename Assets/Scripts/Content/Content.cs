@@ -68,7 +68,8 @@ public class Content : MonoBehaviour
     public IEnumerator StoryRoutine(System.Action cb = null)
     {
         yield return new WaitForEndOfFrame();
-        skipNext = false;
+        skipNext = true;
+        bool showedText = false;
         while (story.canContinue)
         {
             string next = trim(story.Continue());
@@ -76,26 +77,31 @@ public class Content : MonoBehaviour
             yield return new WaitUntil(() => tagsDone);
             ProcessTags();
             yield return new WaitUntil(() => tagsDone);
-            if (showText)
+            if (showText && next != "")
             {
                 DialogueManager.singleton.CreateDialogue(next, "main");
                 if (next != "")
                 {
                     yield return new WaitUntil(() => skipNext);
+                    showedText = true;
                 }
                 skipTimer = storyPace;
                 if (skipNext)
                 {
-                    yield return new WaitForSeconds(0.25f);
+                    yield return new WaitForSeconds(1f);
                 }
             }
-            skipNext = false;
         }
         yield return new WaitUntil(() => tagsDone);
+        if (showedText)
+        {
+            skipNext = false;
+            yield return new WaitUntil(() => skipNext);
+        }
         ShowChoices();
     }
 
-    public void ShowChoices()
+    public bool ShowChoices()
     {
         DialogueManager dm = DialogueManager.singleton;
         clickables.Clear();
@@ -118,6 +124,23 @@ public class Content : MonoBehaviour
         }
         if (canContinue)
             StopStory();
+        return canContinue;
+    }
+
+    public bool WillShowChoices()
+    {
+        if (story.currentChoices.Count > 0)
+        {
+            foreach (Choice choice in story.currentChoices)
+            {
+                Match m = clickChoiceRegex.Match(choice.text);
+                if (!m.Success)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public bool ProcessClickableChoice(Choice choice)

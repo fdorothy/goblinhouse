@@ -30,10 +30,11 @@ public class DialogueManager : MonoBehaviour
 
     public void CreateDialogue(string text, string actor)
     {
-        dialogues.ForEach((Dialogue dialog) => dialog.Shift());
+        dialogues.ForEach((Dialogue dialog) => dialog.Shift(true));
         Dialogue d = Instantiate<Dialogue>(GetDialogue(actor), dialogueParent);
         d.transform.SetParent(dialogueParent);
-        KillAllDialogues();
+        d.targetPosition = d.transform.position;
+        //KillAllDialogues();
         dialogues.Add(d);
         d.RunDialogue(text);
     }
@@ -74,12 +75,14 @@ public class DialogueManager : MonoBehaviour
         if (choicesRow == null)
         {
             choicesRow = Instantiate<Choices>(choicesPrefab, dialogueParent);
-            KillAllDialogues();
+            dialogues.ForEach((Dialogue dialog) => dialog.Shift(true));
+            //KillAllDialogues();
         }
         DialogueChoice dc = Instantiate<DialogueChoice>(choicePrefab);
         choicesRow.AddChoice(dc);
         dc.RunChoice(text, () =>
         {
+            KillAllDialogues();
             KillAllChoices();
             cb.Invoke();
         });
