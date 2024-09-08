@@ -10,7 +10,7 @@ public class Content : MonoBehaviour
 {
     public TextAsset inkJson;
     public UnityEngine.UI.RawImage viewImage;
-    private Story story;
+    public Story story;
     protected State state;
     public bool runningStory = false;
     public float storyPace = 5.0f;

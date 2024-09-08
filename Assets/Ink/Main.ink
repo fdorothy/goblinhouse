@@ -7,7 +7,6 @@ VAR DEBUG = false
 VAR master_key = false
 VAR house_key = false
 VAR rainboots = false
-VAR hallway_light = false
 VAR coins = false
 VAR holding = ""
 
