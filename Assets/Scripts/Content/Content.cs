@@ -88,7 +88,7 @@ public class Content : MonoBehaviour
                 skipTimer = storyPace;
                 if (skipNext)
                 {
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(0f);
                 }
             }
         }
