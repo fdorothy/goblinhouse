@@ -1,5 +1,7 @@
 === hallway(_position) ===
 { update_location("Hallway", _position) }
+{ ! Everyone is asleep. }
+{ ! I should be quiet. }
 -> options
 
 = options
@@ -15,7 +17,7 @@
 = guestroom_door
 This is the other guest's room.
 I think her name is Julia.
-"*knock* *knock*"
+KNOCK KNOCK
 ...
 The door cracks opens, and Julia peeks out.
 "I'm hungry. Got anything to eat out there?"

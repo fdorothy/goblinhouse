@@ -57,24 +57,10 @@ The storm rages outside.
         You are now perched on a thin slant of roof.
         The rain poors down around you.
         + + + [jump down]
-            You jump off the roof.
-            You fall, breaking your leg when you hit the ground.
-            + + + + [cry for help]
-                Something hears your cry.
-                A strange being approaches you in the rain.
-                They have a knife in their hand.
-                + + + + + [fight]
-                    You raise your hands in self defense.
-                    It is no good, the knife jabs deep into your flesh.
-                    You fall over face down, gasping for breath.
-                    -> gameover
-                + + + + + [run]
-                    You hobble on your good leg away from the thing.
-                    You make it a few yards before feeling the knife enter your back.
-                    -> gameover
+            You move your legs to jump, but chicken out last minute.
+            You crawl back inside the house, leaving the precipice behind.
         + + + [go back inside]
             You crawl back inside the window, leaving the precipice behind.
-            
     + + [close window]
  + [nevermind]
  - ->->

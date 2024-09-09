@@ -8,6 +8,8 @@ VAR master_key = false
 VAR house_key = false
 VAR rainboots = false
 VAR coins = false
+VAR master_unlocked = false
+VAR front_door_unlocked = false
 VAR holding = ""
 
 INCLUDE Bedroom.ink

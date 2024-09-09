@@ -1,9 +1,6 @@
 === kitchen(_position) ===
 { update_location("Kitchen", _position) }
-
-{ ! Everyone is asleep. }
-{ ! I should be quiet. }
-
+{ ! You think you hear the sound of a mouse in the cabinets }
 -> options
 
 = options
@@ -31,3 +28,5 @@ You can only take one of them at a time.
  + [cat treats]
    { take("treats") }
  - ->->
+ 
+ 

@@ -17,10 +17,18 @@
 { holding == "shovel":
     -> find_coffin ->
  - else:
-    You claw through the dirt.
-    You are panting, there is too much dirt for your bare hands.
+    -> find_nothing_in_dirt ->
  }
  ->->
+ 
+ = find_nothing_in_dirt
+    You claw through the dirt.
+    You are panting, there is too much dirt for your bare hands.
+  + [keep digging]
+    You wipe the sweat from your forehead.
+    -> find_nothing_in_dirt
+  - [leave]
+    ->->
  
  = find_coffin
 { ! You dig for a while with the shovel. }
