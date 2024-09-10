@@ -17,20 +17,24 @@
 = guestroom_door
 This is the other guest's room.
 I think her name is Julia.
-KNOCK KNOCK
-...
-The door cracks opens, and Julia peeks out.
-"I'm hungry. Got anything to eat out there?"
-+ [yes]
-    { holding == "cookies":
-        -> guestroom("FromHallway")
-    - else:
-        "Bullshit, you don't have anything"
++ [knock] KNOCK KNOCK
+    ...
+    The door cracks opens, and Julia peeks out.
+    "I'm hungry. Got anything to eat out there?"
+    + + [yes]
+        { holding == "cookies":
+            -> guestroom("FromHallway")
+        - else:
+            "Bullshit, you don't have anything"
+            Julia slams the door shut.
+        }
+    + + [no]
+        "..."
+        Julia closes and locks the door.
+    + + { masterbedroom } [there's been a murder]
+        "Do I look like the police?"
         Julia slams the door shut.
-    }
-+ [no]
-    "..."
-    Julia closes and locks the door.
++ [leave]
 - ->->
 
 = bedroom_door
@@ -39,7 +43,4 @@ The door cracks opens, and Julia peeks out.
 = stairs
 -> kitchen("FromUpstairs") -> DONE
 
-= stairs_death
-
-You fall down the stairs in the darkness and break your neck.
 -> gameover

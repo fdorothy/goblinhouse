@@ -26,13 +26,26 @@ INCLUDE GuestRoom.ink
 <- intro
 
 === intro ===
-You wake from a bad dream in an unfamiliar place.
-As you stare at the ceiling, you remember you're on vacation.
-You are unsure what time it is, but the storm outside makes it hard to sleep.
-You wonder if the tour will be canceled. Better check the laptop.
+{ ! GOBLINS IN THE WALLS }
+ + [START]
+    -> start
+ + [HELP]
+    Left-button click to move
+    The cursor will change if you can interact with an object
+    Click on the object to interact with it
+    -> intro
 
- + awaken -> bedroom("FromStart")
- + sleep -> intro
+=== start ===
+They're all around you.
+Their knives nearly as sharp as their teeth.
+Their intent as evil as their skin is green.
+ + [open your eyes]
+    ...
+    You wake from the bad dream in an unfamiliar place.
+    As you stare at the ceiling, you remember you're on vacation.
+    You are unsure what time it is, but the storm outside makes it hard to sleep.
+    You wonder if the tour will be canceled. Better check the laptop.
+    + + [get up] -> bedroom("FromStart")
 
 === gameover ===
 YOU DIED

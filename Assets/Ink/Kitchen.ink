@@ -1,6 +1,7 @@
 === kitchen(_position) ===
 { update_location("Kitchen", _position) }
-{ ! You think you hear the sound of a mouse in the cabinets }
+{ ! You walk down the stairs to the kitchen. }
+{ ! You think you hear the sound of a mouse in the cabinets. }
 -> options
 
 = options
