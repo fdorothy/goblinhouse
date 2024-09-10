@@ -18,7 +18,7 @@ A body lays on the floor here.
 
  + [examine]
     { ! You turn the body over and see the face of the landlord. }
-    A deep slash is on his chest.
+    A deep slash is on his throat.
     The body is still warm.
     + + [check pockets]
         { not house_key: You find a key. }

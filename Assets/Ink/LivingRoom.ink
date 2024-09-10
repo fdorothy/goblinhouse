@@ -28,45 +28,41 @@
 ->->
 
 = masterdoor_check_lock
-{ master_key:
-    You use the cat's key to unlock the door.
-    -> masterbedroom("FromLivingRoom")
-- else:
-    -> masterdoor_locked ->->
-}
-
-= masterdoor_locked
-The door is locked.
+{ not master_unlocked: The door is locked }
+{ master_unlocked: -> masterbedroom("FromLivingRoom") }
++ { master_key } [use cat's key]
+    ~ master_unlocked = true
+    You use the cat's key to unlock the master bedroom door.
+    + + [enter room]
+        -> masterbedroom("FromLivingRoom")
+    + + [leave]
 + [knock]
-    "*knock* *knock*"
+    KNOCK KNOCK
     ...
-    No reply.
+    No response
 + [leave]
 - ->->
 
 = frontdoor
-{ wires == 0:
-    It's storming too much to go outside.
-  - else:
-    { not house_key:
-        The door won't budge.
-        There is a padlock on it, I need a key.
-        Isn't that a big fire hazard?
-    }
-    { house_key:
-        { ! You unlock the padlock }
-        -> go_outside
-    }
-}
-->->
+{ front_door_unlocked: -> go_outside }
+{ not front_door_unlocked: The door has a pad lock on it. Is that safe? ->-> }
++ { house_key } [use padlock key]
+    You take out the key you got from the landlord's body from your pocket.
+    You open the padlock
+    ~ front_door_unlocked = true
+    + + [go outside]
+        -> go_outside ->
+    + + [stay inside]
++ [nevermind]
+- ->->
 
 = go_outside
 { rainboots:
     -> cemetary("FromHouse")
 - else:
-    You take a few steps outside and are stuck in the mud.
-    You feel a knife stab into your back.
-    -> gameover
+    It's raining too much and there is mud all over the ground.
+    You can't go out there without some rainboots.
+    ->->
 }
 
 = wires
