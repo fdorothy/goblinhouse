@@ -22,7 +22,7 @@ public class Flipbook : MonoBehaviour
     private FlipbookSequence currentSequence;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         sr = GetComponent<SpriteRenderer>();
         ticks = period;
@@ -33,6 +33,7 @@ public class Flipbook : MonoBehaviour
             if (currentSequence.sprites.Length > 0)
                 sr.sprite = currentSequence.sprites[0];
         }
+        yield return new WaitUntil(() => FlipbookManager.singleton != null);
         FlipbookManager.singleton.RegisterFlipbook(this);
     }
 

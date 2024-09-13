@@ -60,6 +60,7 @@ public class Dialogue : MonoBehaviour
 
     public float GetHeight()
     {
-        return this.GetComponent<RectTransform>().rect.height;
+        //return this.GetComponent<RectTransform>().rect.height;
+        return 40;
     }
 }
