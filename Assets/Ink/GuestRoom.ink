@@ -8,23 +8,37 @@
 # clickables: clear
 
  + [{ investigate("julia", "Julia") }] -> julia ->
- + [{ investigate("clothes", "Clothes") }] -> clothes ->
+ + [{ investigate("clothes", "Rain gear") }] -> clothes ->
  + [{ exit("door", "Leave") }] -> hallway("FromGuestRoom")
  - -> options
 
 = julia
-"Hello, did you notice the power is out?"
-->->
+"Hello again...what was your name?"
+ + [James]
+ -
+"Right, James..." Julia remembers.
+"I heard some horrible sounds earlier. What was that all about?"
+ + [I was asleep]
+    "I see, you were asleep?"
+    "How did you sleep through all that?"
+    "...and I thought I heard your voice."
+ + { found_body } [A murder]
+    "The landlord has been murdered!?"
+    "This is horrible, we've got to call the police."
+    "I'm getting no reception"
+    "But I think there's a pay phone outside."
+ + [leave] ->->
+ - ->->
 
 = clothes
-Julia's clothes are scattered on the floor here.
+{ rainboots: You've already taken the raincoat. }
 { not rainboots: -> see_rainboots -> }
 ->->
 
 = see_rainboots
-A pair of rainboots catch your eye.
- + [put on boots]
-    You pull the rainboots on your feet.
+Julia's rain coat is on the floor here.
+ + [put on raincoat]
+    You put the raincoat on.
     ~ rainboots = true
  + [leave] ...
  - ->->

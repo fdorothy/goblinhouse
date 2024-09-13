@@ -11,6 +11,7 @@
  - -> options
 
 = body
+~ found_body = true
 A body lays on the floor here.
 
  + [examine]

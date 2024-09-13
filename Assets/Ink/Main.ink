@@ -13,6 +13,7 @@ VAR front_door_unlocked = false
 VAR holding = ""
 VAR investigated_laptop = false
 VAR inserted_coins = false
+VAR found_body = false
 
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
