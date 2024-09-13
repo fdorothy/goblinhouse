@@ -36,7 +36,7 @@ I think her name is Julia.
 + [knock] KNOCK KNOCK
     ...
     The door cracks opens, and Julia peeks out.
-    "I'm hungry. Got anything to eat out there?"
+    "I'm hungry. Got anything to eat out there? I like cookies."
     + + [yes]
         { holding == "cookies":
             -> guestroom("FromHallway")

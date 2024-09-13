@@ -16,7 +16,7 @@ public class Power : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 TurnOff();
-                yield return new WaitForSeconds(Random.Range(.01f, .05f));
+                yield return new WaitForSeconds(Random.Range(.03f, .1f));
                 TurnOn();
                 yield return new WaitForSeconds(Random.Range(.1f, .2f));
             }

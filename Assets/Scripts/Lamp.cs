@@ -22,7 +22,7 @@ public class Lamp : MonoBehaviour
 
     public void Update()
     {
-        lampLight.intensity = Mathf.MoveTowards(lampLight.intensity, dstIntensity, Time.deltaTime * 10f);
+        lampLight.intensity = Mathf.MoveTowards(lampLight.intensity, dstIntensity, Time.deltaTime * 20f);
     }
 
     public void TurnOff()
