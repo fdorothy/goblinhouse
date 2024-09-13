@@ -11,7 +11,7 @@
  + [{ exit("garden", "Decrepit Garden") }] -> gardendoor ->
  + [{ exit("livingroom", "Living Room") }] -> livingroom("FromKitchen")
  + [{ investigate("cabinets", "Cabinets") }] -> cabinets ->
- + [{ investigate("flashlight", "Flashlight") }] -> flashlight ->
+ + [{ investigate("flashlight", "Flashlights") }] -> flashlight ->
  + [{ investigate("oven", "Oven") }] -> oven ->
  - -> options
  
@@ -62,10 +62,10 @@ You can only take one of them at a time.
  - ->->
  
 = flashlight
-There is a flashlight sitting on the counter.
+There are a few flashlights sitting on the table.
 You can only take one of item at a time.
-+ [take flashlight]
-    You take the flash light
++ [take a flashlight]
+    You take a flashlight
     { take("flashlight") }
 + [leave it]
 - ->->
