@@ -21,14 +21,15 @@ A pentagram is drawn on the floor, with candles still burning at the corners.
 The lines appear drawn with sand and broken seashells.
 The floor boards are broken upwards at the center, as if a beast tore his way up from the basement.
 { ! You hear a ghostly whisper from the opening. }
+{ ! "Come on down deary, darkness won't hurt you, but I might." }
+{ ! "Hah hah hah" }
 
  + [Go down]
     { holding == "flashlight":
         You hop down the hole with your flashlight ready.
         -> basement("FromMaster")
       - else:
-        You think you hear something down there, chattering in an archaic language.
-        Or maybe it's just a mouse.
+        You heard something down there, laughing.
         You are too scared to go down without some kind of light.
         You back away from the hole.
     }

@@ -1,6 +1,6 @@
 === cemetary(_position) ===
 { update_location("Cemetary", _position) }
-
+{ ! -> goblin1 -> }
 -> options
 
 = options
@@ -12,6 +12,14 @@
  + [{ exit("shed", "Shed") }] -> shed("FromOutside")
  + [{ exit("road", "Road") }] -> road("FromCemetary")
  - -> options
+ 
+= goblin1
+You walk out the door and down the path to the cemetary on the grounds.
+You see a shape standing amongst the cemetary stones.
+Its long face turns to look at you as it slowly raises a knife in the air.
+Suddenly in a flash of lightning, the shape is gone.
+The cemetary is yours to explore.
+->->
 
 = investigate_dirt
 { holding == "shovel":
@@ -27,8 +35,8 @@
   + [keep digging]
     You wipe the sweat from your forehead.
     -> find_nothing_in_dirt
-  - [leave]
-    ->->
+  + [leave]
+  - ->->
  
  = find_coffin
 { ! You dig for a while with the shovel. }

@@ -1,8 +1,5 @@
 === basement(_position) ===
 { update_location("Basement", _position) }
-
-{ ! What is that smell? }
-
 -> options
 
 = options

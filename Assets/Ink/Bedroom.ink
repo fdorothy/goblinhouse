@@ -8,7 +8,6 @@
 
  + [{investigate("laptop", "Laptop")}] -> laptop ->
  + [{investigate("window", "Window")}] -> window ->
- + [{investigate("radio", "An Old Radio")}] -> radio ->
  + [{investigate("bearhead", "Odd Decor")}] -> bearhead ->
  + [{exit("door", "Leave")}] -> leave_bedroom ->
  - -> options
@@ -22,7 +21,7 @@ The owners must be hunters.
     You see something in its mouth.
     + + [take it]
         It's a note.
-        + + + [read]
+        + + + [read it]
             "Hope not to see Heaven"
             "I have come to lead you to the other shore"
             "into eternal darkness"
@@ -34,20 +33,46 @@ The owners must be hunters.
 
 = leave_bedroom
 
-{ laptop:
+{ investigated_laptop:
     -> hallway("FromBedroom")
  - else:
     You go to open the door, but think twice.
-    You should check your laptop.
+    You should check the online tour website first.
 }
 ->->
 
 = laptop
-{ laptop == 1 : No Internet connection}
-{ laptop != 1 : Still no internet.}
-{ livingroom.wires == 0: I think the router is in the living room downstairs. }
-{ livingroom.wires > 0: With the router missing there is no hope to get online. }
-->->
+You're looking at the laptop's login screen. The time reads 12:53AM.
+ + [login]
+    You type on the laptop.
+    Login name: jhenry, password: ********
+    The computer screen flickers green as you stare at what you were last working on.
+    -> operate_laptop ->
+ + [leave]
+ - ->->
+
+= operate_laptop
++ [read work notes]
+    You open and read your work notes.
+    Merge GAL-3421, contact Jim about API errors, scrum @ 8:45AM
+    -> operate_laptop
++ [read journal]
+    To talk about with therapist:
+    \- Hearing the voices again
+    \- Waking up in strange places
+    \- Lovely trip, hoping to see puffins tomorrow
+    -> operate_laptop
++ [open browser]
+    You open the browser, and stare at a blank page.
+    There is no internet.
+    { livingroom.wires == 0: I think the router is in the living room downstairs. Maybe I can reset it? }
+    { livingroom.wires > 0: With the router missing there is no hope to get online. }
+    ~ investigated_laptop = true
+    -> operate_laptop
++ [logout]
+    "That's enough for now"
+    You logout of the laptop.
+ - ->->
 
 = window
 The storm rages outside.
@@ -68,21 +93,3 @@ The storm rages outside.
     + + [close window]
  + [nevermind]
  - ->->
-
-= radio
-{! -> radio_first ->->}
-{radio != 1 : -> radio_normal ->->}
-->->
-
-= radio_first
-click...bzz
-the weather is quite bad for Ireland
-the hurricane has knocked down power lines all over the island
-wind gusts over 100 kilometers per...
-bzz...click
-->->
-
-= radio_normal
-click...bzz
-I can't seem to find any stations
-->->

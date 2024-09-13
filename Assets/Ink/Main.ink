@@ -11,6 +11,8 @@ VAR coins = false
 VAR master_unlocked = false
 VAR front_door_unlocked = false
 VAR holding = ""
+VAR investigated_laptop = false
+VAR inserted_coins = false
 
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
@@ -22,6 +24,8 @@ INCLUDE Cemetary.ink
 INCLUDE Shed.ink
 INCLUDE Road.ink
 INCLUDE GuestRoom.ink
+INCLUDE Garden.ink
+
 
 <- intro
 
@@ -29,7 +33,8 @@ INCLUDE GuestRoom.ink
 { ! GOBLINS IN THE WALLS }
  + [START]
     -> start
- + [HELP]
+ * [HELP]
+    Made by Fredric Dorothy
     Left-button click to move
     The cursor will change if you can interact with an object
     Click on the object to interact with it
@@ -37,11 +42,22 @@ INCLUDE GuestRoom.ink
 
 === start ===
 They're all around you.
-Their knives nearly as sharp as their teeth.
+Their knives as sharp as their teeth.
 Their intent as evil as their skin is green.
+Small monsters, hell bent on murder.
+ + [run]
+    You make a run for it.
+    They catch up to you.
+ + [fight]
+    You stand your ground against them.
+    There are too many, they surround you.
+ -
+ You feel the cold steel of their blades as they begin to rip into your flesh.
+ You suddenly realize that this is a dream.
  + [open your eyes]
     ...
     You wake from the bad dream in an unfamiliar place.
+    You are drenched in sweat.
     As you stare at the ceiling, you remember you're on vacation.
     You are unsure what time it is, but the storm outside makes it hard to sleep.
     You wonder if the tour will be canceled. Better check the laptop.

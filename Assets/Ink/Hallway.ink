@@ -1,7 +1,6 @@
 === hallway(_position) ===
 { update_location("Hallway", _position) }
-{ ! Everyone is asleep. }
-{ ! I should be quiet. }
+{ ! -> goblin1 -> }
 -> options
 
 = options
@@ -13,6 +12,23 @@
  + [{exit("stairs", "Stairs Down")}] -> stairs ->
  + [{investigate("window", "Window")}] -> bedroom.window ->
  - -> options
+
+= goblin1
+...
+You hear the shrill voice from your dreams.
+It is coming from the wall.
+"The man..."
+"...he screamed in pain, didn't he, as we cut him down?"
+"Hah hah hah!"
+ + [flee back to bedroom]
+    You jump back into the bedroom and slam the door.
+    Sweat beads on your forehead.
+    What was that?
+    -> bedroom("FromHallway")
+ + [stand ground]
+    You stand your ground, and the laughing fades.
+    Was that real, or are you still dreaming?
+ - ->->
 
 = guestroom_door
 This is the other guest's room.

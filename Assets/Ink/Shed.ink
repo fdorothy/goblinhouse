@@ -20,6 +20,17 @@ What would you like to take?
     ~ holding = "shovel"
 + [machete]
     You take the machete.
+    { ! -> goblin1 -> }
     ~ holding = "machete"
 + [leave]
 - ->->
+
+= goblin1
+You hear a scratchy voice coming from everywhere in the shed.
+Its sound bouncing off the walls.
+"There it is, the murder weapon. The machete."
+"But you already knew that, didn't you?"
+"Murderer, murderer, murderer!"
+"Hah hah hah"
+The voice stops as the laughter echoes off the walls.
+->->
