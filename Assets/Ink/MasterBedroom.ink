@@ -19,7 +19,7 @@ A pentagram is drawn on the floor, with candles still burning at the corners.
  - -> options
  
 = pentagram
-The lines appear drawn with sand and broken seashells.
+The lines appear drawn with blood, sand and broken seashells.
 The floor boards are broken upwards at the center, as if a beast tore his way up from the basement.
 { ! You hear a ghostly whisper from the opening. }
 { ! "Come on down deary, darkness won't hurt you, but I might." }

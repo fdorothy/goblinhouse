@@ -37,6 +37,7 @@ public class MusicManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         audioSource.clip = clips.Find(clip => clip.name == nextTrack);
         audioSource.Play();
+        audioSource.loop = true;
         targetVolume = maxVolume;
     }
 }

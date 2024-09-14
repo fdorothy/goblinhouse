@@ -2761,7 +2761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 552822326}
   m_Layer: 0
-  m_Name: FromHouse
+  m_Name: FromKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6696,7 +6696,7 @@ PrefabInstance:
     - target: {fileID: 2007759050824437817, guid: b03336bd06135484dad9ba2ea8f7b97a,
         type: 3}
       propertyPath: position
-      value: FromHouse
+      value: FromKitchen
       objectReference: {fileID: 0}
     - target: {fileID: 2007759050824437822, guid: b03336bd06135484dad9ba2ea8f7b97a,
         type: 3}

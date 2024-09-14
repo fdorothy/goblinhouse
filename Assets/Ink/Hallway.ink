@@ -9,8 +9,7 @@
 # clickables: clear
 
  + [{exit("bedroom", "Your Bedroom")}] -> bedroom_door ->
- + [{exit("guestroom", "Guest Bedroom")}]
-            -> guestroom("FromHallway")
+ + [{exit("guestroom", "Guest Bedroom")}] -> guestroom_door ->
  + [{exit("stairs", "Stairs Down")}] -> stairs ->
  + [{investigate("window", "Window")}] -> bedroom.window ->
  - -> options
