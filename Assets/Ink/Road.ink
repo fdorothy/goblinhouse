@@ -22,32 +22,51 @@ You pick up the receiver
     You insert coins
     You hear a dial tone from the receiver.
     + + [dial police]
-        You dial the police.
-        -> police
+        -> police ->
     + + [dial taxi]
-        -> taxi
+        -> taxi ->
 + { inserted_coins } [dial taxi]
-    -> taxi
+    -> taxi ->
 + [dial police]
-    You dial the police.
-    -> police
+    -> police ->
 + [hang up]
 - ->->
 
 = police
-The police show up shortly after your call.
-The police question you and Julie.
-They find you suspicious, with your blood and rain soaked clothes.
-They put you in handcuffs and stuff you into the back of the police car.
--> win
+You dial the police.
+You clear your throat, "hello, police? I'd like to report a murder."
+...
+"Hello? Is there anyone there?" you say.
+...
+A shrill voice is heard from the receiver.
+{ sfx("laugh") }
+"Hah hah hah"
+You quickly hang up.
+->->
 
 = taxi
 You dial for a taxi.
 ...
 The taxi arrives on the dark street.
-You climb in.
-The driver gives you an odd look.
-"Where to?"
+The driver stares ahead as you get into the car.
+Where do you want to tell the driver to go?
+ + [airport]
+    You tell him to go to the airport.
+ + [downtown]
+    You tell him to go downtown.
+ -
+He doesn't respond.
+ + [excuse me?]
+    "Excuse me, did you hear me?"
+ + [leave car]
+    You try to open the car door, but it's locked.
+ -
+The driver slowly turns his head.
+His nose is long. Longer than it should be.
+His skin is green.
+He stares at you and laughs.
+{ sfx("laugh") }
+"Hah hah hah"
 -> win
 
 = goblin1
