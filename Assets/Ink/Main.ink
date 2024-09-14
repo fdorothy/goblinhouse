@@ -73,6 +73,7 @@ YOU DIED
 
 === win ===
 YOU WIN
+:scene Death Anywhere
 -> DONE
 
 == function update_location(_scene, _position)
