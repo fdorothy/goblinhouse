@@ -9,7 +9,9 @@
 # clickables: clear
 
  + [{ investigate("dirt", "Dirt") }] -> investigate_dirt ->
- + [{ exit("door", "House") }] -> livingroom("FromOutside")
+ + [{ exit("door", "House") }]
+    { sfx("door_open") }
+    -> livingroom("FromOutside")
  + [{ exit("shed", "Shed") }] -> shed("FromOutside")
  + [{ exit("road", "Road") }] -> road("FromCemetary")
  - -> options

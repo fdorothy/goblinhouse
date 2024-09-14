@@ -14,7 +14,9 @@
  + [{ investigate("router", "Wires") }] -> wires ->
  + [{ investigate("cat", "Cat") }] -> cat ->
  + [{ investigate("radio", "An Old Radio") }] -> radio ->
- + [{ exit("kitchendoor", "Kitchen") }] -> kitchen("FromLivingRoom")
+ + [{ exit("kitchendoor", "Kitchen") }]
+    { sfx("door_open") }
+    -> kitchen("FromLivingRoom")
  + [{ exit("frontdoor", "Front Door") }] -> frontdoor ->
  + [{ exit("masterdoor", "Landlord's Bedroom") }] -> masterdoor ->
  - -> options
@@ -36,6 +38,7 @@
     ~ master_unlocked = true
     You use the cat's key to unlock the master bedroom door.
     + + [enter room]
+        { sfx("door_open") }
         -> masterbedroom("FromLivingRoom")
     + + [leave]
 + [knock]
@@ -60,6 +63,7 @@
 
 = go_outside
 { rainboots:
+    { sfx("door_open") }
     -> cemetary("FromHouse")
 - else:
     It's raining too much and there is mud all over the ground.

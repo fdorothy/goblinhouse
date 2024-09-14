@@ -10,7 +10,9 @@
 
  + [{ investigate("julia", "Julia") }] -> julia ->
  + [{ investigate("clothes", "Rain gear") }] -> clothes ->
- + [{ exit("door", "Leave") }] -> hallway("FromGuestRoom")
+ + [{ exit("door", "Leave") }]
+    { sfx("door_open") }
+    -> hallway("FromGuestRoom")
  - -> options
 
 = julia

@@ -11,7 +11,9 @@
  + [{ investigate("catnip", "Catnip") }] -> catnip ->
  + [{ investigate("rosemary", "Rosemary") }] -> rosemary ->
  + [{ investigate("mint", "Mint") }] -> mint ->
- + [{ exit("door", "House") }] -> kitchen("FromGarden")
+ + [{ exit("door", "House") }]
+    { sfx("door_open") }
+    -> kitchen("FromGarden")
  - -> options
 
 = catnip

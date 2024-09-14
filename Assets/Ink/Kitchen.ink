@@ -10,7 +10,9 @@
 
  + [{ exit("stairs", "Upstairs") }] -> hallway("FromKitchen")
  + [{ exit("garden", "Decrepit Garden") }] -> gardendoor ->
- + [{ exit("livingroom", "Living Room") }] -> livingroom("FromKitchen")
+ + [{ exit("livingroom", "Living Room") }]
+    { sfx("door_open") }
+    -> livingroom("FromKitchen")
  + [{ investigate("cabinets", "Cabinets") }] -> cabinets ->
  + [{ investigate("flashlight", "Flashlights") }] -> flashlight ->
  + [{ investigate("oven", "Oven") }] -> oven ->
@@ -28,6 +30,7 @@ You hear a scratchy voice coming from the cabinets.
 
 = gardendoor
 { rainboots:
+    { sfx("door_open") }
     -> garden("FromKitchen")
 - else:
     It's storming too much to go out to the garden.

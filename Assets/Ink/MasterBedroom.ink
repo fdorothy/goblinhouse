@@ -15,7 +15,9 @@ A pentagram is drawn on the floor, with candles still burning at the corners.
 # clickables: clear
  + [{ investigate("pentagram", "Dark Symbol") }] -> pentagram ->
  + [{ investigate("bed", "Bloody Sheets") }] -> sheets ->
- + [{ exit("door", "Door") }] -> livingroom("FromMaster")
+ + [{ exit("door", "Door") }]
+    { sfx("door_open") }
+    -> livingroom("FromMaster")
  - -> options
  
 = pentagram

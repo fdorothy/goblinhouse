@@ -44,6 +44,7 @@ INCLUDE Garden.ink
     -> intro
 
 === start ===
+{ sfx("laugh") }
 They're all around you.
 Their knives as sharp as their teeth.
 Their intent as evil as their skin is green.
@@ -83,7 +84,6 @@ YOU WIN
   ~ position = _position
   { interactive: :scene {scene} {position} }
   { debug("You are in the { scene }.") }
-  { sfx("door_open") }
 }
 
 == function sfx(name)

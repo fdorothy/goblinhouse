@@ -35,6 +35,7 @@ The owners must be hunters.
 = leave_bedroom
 
 { investigated_laptop:
+    { sfx("door_open") }
     -> hallway("FromBedroom")
  - else:
     You go to open the door, but think twice.

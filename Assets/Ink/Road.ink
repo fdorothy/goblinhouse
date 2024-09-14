@@ -13,6 +13,7 @@
  - -> options
 
 = phone
+{ sfx("door_open") }
 { ! -> goblin1 -> }
 You pick up the receiver
 { not inserted_coins: There is no dial tone }

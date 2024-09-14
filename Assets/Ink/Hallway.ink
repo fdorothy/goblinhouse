@@ -27,6 +27,7 @@ It is coming from the wall.
     You jump back into the bedroom and slam the door.
     Sweat beads on your forehead.
     What was that?
+    { sfx("door_open") }
     -> bedroom("FromHallway")
  + [stand ground]
     You stand your ground, and the laughing fades.
@@ -42,6 +43,7 @@ I think her name is Julia.
     "I'm hungry. Got anything to eat out there? I like cookies."
     + + [yes]
         { holding == "cookies":
+            { sfx("door_open") }
             -> guestroom("FromHallway")
         - else:
             "Bullshit, you don't have anything"
@@ -57,6 +59,7 @@ I think her name is Julia.
 - ->->
 
 = bedroom_door
+{ sfx("door_open") }
 -> bedroom("FromHallway") -> DONE
 
 = stairs
