@@ -83,7 +83,11 @@ YOU WIN
   ~ position = _position
   { interactive: :scene {scene} {position} }
   { debug("You are in the { scene }.") }
+  { sfx("door_open") }
 }
+
+== function sfx(name)
+{ interactive: :sfx {name} }
 
 == function debug(text)
 

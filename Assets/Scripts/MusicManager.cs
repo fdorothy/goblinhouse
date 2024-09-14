@@ -8,7 +8,6 @@ public class MusicManager : MonoBehaviour
 
     public List<AudioClip> clips;
     string musicPlaying = "";
-    string nextTrack = "";
     float targetVolume = 0.0f;
     public float maxVolume = 1.0f;
     Coroutine fadeRoutine = null;

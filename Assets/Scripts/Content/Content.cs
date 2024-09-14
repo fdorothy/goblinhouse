@@ -20,12 +20,14 @@ public class Content : MonoBehaviour
     public bool runStoryOnStart = true;
     bool startOfStory = true;
     public Dictionary<string, int> clickables = new Dictionary<string, int>();
+    public System.Action<string> OnSoundEffect;
 
     public string startScene = "";
     public string startPosition = "";
 
     protected Regex clickChoiceRegex = new Regex(@":(?<option>(i|e)) (?<gameobject>\w+) (?<hovertext>.*)");
     protected Regex sceneRegex = new Regex(@":(?<option>(scene)) (?<scene>\w+) (?<position>\w+)");
+    protected Regex sfxRegex = new Regex(@":(?<option>(sfx)) (?<name>\w+)");
 
     public void Start()
     {
@@ -196,6 +198,14 @@ public class Content : MonoBehaviour
             }));
             if (originalAlpha > 0.0f)
                 seq.Append(viewImage.DOFade(originalAlpha, 0.5f));
+            return false;
+        }
+        m = sfxRegex.Match(text);
+        if (m.Success)
+        {
+            string name = m.Groups["name"].Value;
+            if (OnSoundEffect != null)
+                OnSoundEffect.Invoke(name);
             return false;
         }
         return true;
