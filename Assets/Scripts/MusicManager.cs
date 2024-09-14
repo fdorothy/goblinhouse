@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     public List<AudioClip> clips;
     string musicPlaying = "";
@@ -12,12 +12,6 @@ public class MusicManager : MonoBehaviour
     float targetVolume = 0.0f;
     public float maxVolume = 1.0f;
     Coroutine fadeRoutine = null;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     // Update is called once per frame
     void Update()
