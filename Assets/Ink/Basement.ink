@@ -1,5 +1,6 @@
 === basement(_position) ===
 { update_location("Basement", _position) }
+~ music = "basement_theme"
 -> options
 
 = options

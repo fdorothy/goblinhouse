@@ -1,5 +1,6 @@
 === shed(_position) ===
 { update_location("Shed", _position) }
+~ music = "outdoor_theme"
 
 -> options
 

@@ -1,5 +1,6 @@
 === kitchen(_position) ===
 { update_location("Kitchen", _position) }
+~ music = "house_theme"
 { ! -> goblin1 -> }
 -> options
 

@@ -1,5 +1,6 @@
 === cemetary(_position) ===
 { update_location("Cemetary", _position) }
+~ music = "outdoor_theme"
 { ! -> goblin1 -> }
 -> options
 

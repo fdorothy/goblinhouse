@@ -1,5 +1,6 @@
 === guestroom(_position) ===
 { update_location("GuestRoom", _position) }
+~ music = "house_theme"
 
 -> options
 

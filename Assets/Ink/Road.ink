@@ -1,5 +1,6 @@
 === road(_position) ===
 { update_location("Road", _position) }
+~ music = "outdoor_theme"
 
 -> options
 

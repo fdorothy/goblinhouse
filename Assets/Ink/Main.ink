@@ -4,6 +4,7 @@ VAR interactive = false
 VAR DEBUG = false
 
 // global game variables
+VAR music = ""
 VAR master_key = false
 VAR house_key = false
 VAR rainboots = false
@@ -32,6 +33,7 @@ INCLUDE Garden.ink
 
 === intro ===
 { ! GOBLINS IN THE WALLS }
+~ music = "title_theme"
  + [START]
     -> start
  * [HELP]

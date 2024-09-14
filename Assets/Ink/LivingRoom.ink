@@ -1,5 +1,6 @@
 === livingroom(_position) ===
 { update_location("LivingRoom", _position) }
+~ music = "house_theme"
 
 { ! The router should be around here somewhere. }
 { ! I should be quiet to not wake up the landlord. }

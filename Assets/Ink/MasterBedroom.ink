@@ -1,5 +1,6 @@
 === masterbedroom(_position) ===
 { update_location("MasterBedroom", _position) }
+~ music = "house_theme"
 
 { ! -> first_entrance -> }
 

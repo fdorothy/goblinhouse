@@ -1,5 +1,6 @@
 === garden(_position) ===
 { update_location("Garden", _position) }
+~ music = "outdoor_theme"
 
 -> options
 
