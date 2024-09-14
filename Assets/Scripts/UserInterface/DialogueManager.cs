@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
         Dialogue d = Instantiate<Dialogue>(GetDialogue(actor), dialogueParent);
         d.transform.SetParent(dialogueParent);
         d.targetPosition = d.transform.position;
-        //KillAllDialogues();
+        KillAllDialogues();
         dialogues.Add(d);
         d.RunDialogue(text);
     }
@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         {
             choicesRow = Instantiate<Choices>(choicesPrefab, dialogueParent);
             dialogues.ForEach((Dialogue dialog) => dialog.Shift(true));
-            //KillAllDialogues();
+            KillAllDialogues();
         }
         DialogueChoice dc = Instantiate<DialogueChoice>(choicePrefab);
         choicesRow.AddChoice(dc);

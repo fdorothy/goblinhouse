@@ -13,12 +13,11 @@ public class Content : MonoBehaviour
     public Story story;
     protected State state;
     public bool runningStory = false;
-    public float storyPace = 5.0f;
+    float storyPace = 5.0f;
     public bool skipNext = false;
     public float skipTimer = 3.0f;
     public bool tagsDone = true;
     public bool runStoryOnStart = true;
-    bool startOfStory = true;
     public Dictionary<string, int> clickables = new Dictionary<string, int>();
     public System.Action<string> OnSoundEffect;
 
@@ -60,10 +59,13 @@ public class Content : MonoBehaviour
     {
         if (runningStory)
         {
-            //skipTimer -= Time.deltaTime;
             if (Input.anyKeyDown || skipTimer < 0.0f)
             {
                 skipNext = true;
+            }
+            else
+            {
+                skipTimer -= Time.deltaTime;
             }
         }
     }
@@ -72,7 +74,6 @@ public class Content : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         skipNext = true;
-        bool showedText = false;
         while (story.canContinue)
         {
             string next = trim(story.Continue());
@@ -82,27 +83,16 @@ public class Content : MonoBehaviour
             yield return new WaitUntil(() => tagsDone);
             if (showText && next != "")
             {
-                DialogueManager.singleton.CreateDialogue(next, "main", !startOfStory);
+                DialogueManager.singleton.CreateDialogue(next, "main", true);
                 if (next != "")
                 {
+                    skipNext = false;
+                    skipTimer = storyPace;
                     yield return new WaitUntil(() => skipNext);
-                    showedText = true;
-                }
-                skipTimer = storyPace;
-                if (skipNext)
-                {
-                    if (!startOfStory)
-                        yield return new WaitForSeconds(1f);
                 }
             }
         }
         yield return new WaitUntil(() => tagsDone);
-        if (showedText)
-        {
-            skipNext = false;
-            yield return new WaitUntil(() => skipNext);
-        }
-        startOfStory = false;
         ShowChoices();
     }
 
@@ -265,13 +255,11 @@ public class Content : MonoBehaviour
             if (originalAlpha > 0.25f)
             {
                 viewImage.DOFade(0.25f, 0.5f).OnComplete(() => {
-                    startOfStory = true;
                     StartCoroutine(StoryRoutine(cb));
                 });
             }
             else
             {
-                startOfStory = true;
                 StartCoroutine(StoryRoutine(cb));
             }
         }
