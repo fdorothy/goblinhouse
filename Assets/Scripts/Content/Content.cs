@@ -20,6 +20,7 @@ public class Content : MonoBehaviour
     public bool runStoryOnStart = true;
     public Dictionary<string, int> clickables = new Dictionary<string, int>();
     public System.Action<string> OnSoundEffect;
+    public System.Action OnTyping;
 
     public string startScene = "";
     public string startPosition = "";
@@ -83,6 +84,7 @@ public class Content : MonoBehaviour
             yield return new WaitUntil(() => tagsDone);
             if (showText && next != "")
             {
+                OnTyping.Invoke();
                 DialogueManager.singleton.CreateDialogue(next, "main", true);
                 if (next != "")
                 {

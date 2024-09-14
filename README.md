@@ -26,3 +26,4 @@ Outdoors theme: https://opengameart.org/content/rain-loopable
 
  - Kenney's SFX Pack: https://opengameart.org/content/50-rpg-sound-effects
  - AntumDeluge cackle: https://opengameart.org/content/witch-cackle
+ - keyboard sounds: https://opengameart.org/content/mechanical-keyboard-sound
