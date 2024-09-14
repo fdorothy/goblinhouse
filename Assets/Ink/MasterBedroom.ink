@@ -21,8 +21,10 @@ A pentagram is drawn on the floor, with candles still burning at the corners.
 = pentagram
 The lines appear drawn with blood, sand and broken seashells.
 The floor boards are broken upwards at the center, as if a beast tore his way up from the basement.
+{ sfx("laugh") }
 { ! You hear a ghostly whisper from the opening. }
 { ! "Come on down deary, darkness won't hurt you, but I might." }
+{ sfx("laugh") }
 { ! "Hah hah hah" }
 
  + [Go down]

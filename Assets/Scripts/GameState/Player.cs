@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
     public NavMeshAgent agent;
     public CharacterFlipbook flipbook;
     public Vector3 forward;
+    public AudioSource audioSource;
+    public List<AudioClip> footStepSounds;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(FootstepSoundsRoutine());
     }
 
     private void Update()
@@ -30,6 +33,19 @@ public class Player : MonoBehaviour
             flipbook.walking = false;
         }
         Shader.SetGlobalVector("_PlayerPosition", transform.position);
+    }
+
+    public IEnumerator FootstepSoundsRoutine()
+    {
+        while (true)
+        {
+            while (agent.hasPath)
+            {
+                audioSource.PlayOneShot(footStepSounds[Random.Range(0, footStepSounds.Count)]);
+                yield return new WaitForSeconds(0.4f);
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     public void SetDestination(Vector3 target)

@@ -18,9 +18,11 @@
  
 = goblin1
 You walk down the stairs into the kitchen.
+{ sfx("laugh") }
 You hear a scratchy voice coming from the cabinets.
 "You know the girl is next, don't you?"
 "She knows too much"
+{ sfx("laugh") }
 "Hah hah hah"
 ->->
 

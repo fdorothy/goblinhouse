@@ -51,11 +51,13 @@ The driver gives you an odd look.
 
 = goblin1
 You enter the phone booth.
+{ sfx("laugh") }
 You hear the scratchy voice from above.
 Something is on top of the phone booth.
 "Ah, running away are we?
 "Scared of the consequences of your actions?"
 "Murderer, murderer, murderer"
+{ sfx("laugh") }
 "Hah hah hah"
 Something jumps down from atop the phone booth.
 It scurries away into the darkness.

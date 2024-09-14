@@ -21,3 +21,8 @@ Basement theme: https://opengameart.org/content/ominous-goings-on
 Title theme: https://opengameart.org/content/doll-house
 House theme: https://opengameart.org/content/contemplation-0
 Outdoors theme: https://opengameart.org/content/rain-loopable
+
+## Sound Effects
+
+ - Kenney's SFX Pack: https://opengameart.org/content/50-rpg-sound-effects
+ - AntumDeluge cackle: https://opengameart.org/content/witch-cackle

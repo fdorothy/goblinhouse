@@ -27,11 +27,13 @@ What would you like to take?
 - ->->
 
 = goblin1
+{ sfx("laugh") }
 You hear a scratchy voice coming from everywhere in the shed.
 Its sound bouncing off the walls.
 "There it is, the murder weapon. The machete."
 "But you already knew that, didn't you?"
 "Murderer, murderer, murderer!"
+{ sfx("laugh") }
 "Hah hah hah"
 The voice stops as the laughter echoes off the walls.
 ->->

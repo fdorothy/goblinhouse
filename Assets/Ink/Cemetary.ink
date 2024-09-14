@@ -16,6 +16,7 @@
  
 = goblin1
 You walk out the door and down the path to the cemetary on the grounds.
+{ sfx("laugh") }
 You see a shape standing amongst the cemetary stones.
 Its long face turns to look at you as it slowly raises a knife in the air.
 Suddenly in a flash of lightning, the shape is gone.

@@ -15,11 +15,13 @@
  - -> options
 
 = goblin1
+{ sfx("laugh") }
 ...
 You hear the shrill voice from your dreams.
 It is coming from the wall.
 "The man..."
 "...he screamed in pain, didn't he, as we cut him down?"
+{ sfx("laugh") }
 "Hah hah hah!"
  + [flee back to bedroom]
     You jump back into the bedroom and slam the door.
