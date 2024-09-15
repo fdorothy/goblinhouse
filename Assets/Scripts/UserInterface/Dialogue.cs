@@ -61,6 +61,7 @@ public class Dialogue : MonoBehaviour
     public float GetHeight()
     {
         //return this.GetComponent<RectTransform>().rect.height;
-        return 40;
+        float scale = transform.GetComponentInParent<UnityEngine.UI.CanvasScaler>().scaleFactor;
+        return 40 * scale;
     }
 }

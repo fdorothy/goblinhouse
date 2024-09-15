@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
             dialogues.ForEach((Dialogue dialog) => dialog.Shift(true));
             KillAllDialogues();
         }
-        DialogueChoice dc = Instantiate<DialogueChoice>(choicePrefab);
+        DialogueChoice dc = Instantiate<DialogueChoice>(choicePrefab, dialogueParent);
         choicesRow.AddChoice(dc);
         dc.RunChoice(text, () =>
         {
