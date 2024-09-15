@@ -1,5 +1,9 @@
 === road(_position) ===
-{ update_location("Road", _position) }
+{ garda:
+    { update_location("Road2", _position) }
+- else:
+    { update_location("Road", _position) }
+}
 ~ music = "outdoor_theme"
 { ! -> goblin1 -> }
 
