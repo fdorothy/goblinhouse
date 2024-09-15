@@ -72,11 +72,28 @@
 }
 
 = wires
-{ ! Wires protrude from the wall where the router once was. }
-{ ! I guess I won't be getting online any time soon. }
-Maybe the landlords know what is going on.
-{ wires > 1: I should ask them. Their room was on the first floor. }
+{ have_router:
+    -> wires_with_router ->
+- else:
+    { ! Wires protrude from the wall where the router once was. }
+    { ! I guess I won't be getting online any time soon. }
+    Maybe the landlords know what is going on.
+    { wires > 1: I should ask them. Their room was on the first floor. }
+}
 ->->
+
+= wires_with_router
+{ router_plugged_in: The router is plugged in and the internet is on. }
++ { not router_plugged_in } [plug in router]
+    You place the router on the table and plug in the wires.
+    "Gods, I hope this still works."
+    ...
+    The power lights turn on.
+    ...
+    After a few moments, the internet connectivity light turns green.
+    ~ router_plugged_in = true
++ [leave]
+- ->->
 
 = cat
 { holding == "catnip":

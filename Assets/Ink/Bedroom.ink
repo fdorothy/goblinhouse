@@ -65,15 +65,61 @@ You're looking at the laptop's login screen. The time reads 12:53AM.
     \- Lovely trip, hoping to see puffins tomorrow
     -> operate_laptop
 + [open browser]
-    You open the browser, and stare at a blank page.
-    There is no internet.
-    { livingroom.wires == 0: I think the router is in the living room downstairs. Maybe I can reset it? }
-    { livingroom.wires > 0: With the router missing there is no hope to get online. }
-    ~ investigated_laptop = true
+    { router_plugged_in:
+        You open the browser, and an email inbox pops up.
+        { ! "There is internet!" you say, relieved. }
+        -> browser_internet ->
+    - else:
+        -> browser_no_internet ->
+    }
     -> operate_laptop
 + [logout]
     "That's enough for now"
     You logout of the laptop.
+ - ->->
+
+= browser_no_internet
+You open the browser, and stare at a blank page.
+There is no internet.
+{ livingroom.wires == 0: I think the router is in the living room downstairs. Maybe I can reset it? }
+{ livingroom.wires > 0: With the router missing there is no hope to get online. }
+~ investigated_laptop = true
+->->
+
+= browser_internet
+ + [email someone]
+    Who would you like to email?
+    * * [therapist]
+        You send an email to your therapist.
+        ...
+        No response.
+        "It's 1 AM, what did I expect?"
+        -> browser_internet ->
+    * * [friend]
+        You send an email to your friend.
+        ...
+        You see a response.
+        * * * [read it]
+            "Hey man, I got your email."
+            "I don't know all the details,"
+            "But it sounds like a bad situation."
+            "Have you tried emailing the police?"
+        - - -
+        -> browser_internet ->
+    * * [police]
+        You send an email to the police.
+        ...
+        You see a response.
+        * * * [read it]
+            "We are sending Garda over now."
+            "Please meet them by the road outside the house."
+            ~ garda = true
+        - - -
+        -> browser_internet ->
+    + + [nevermind]
+    - -
+        ->->
+ + [close browser]
  - ->->
 
 = window

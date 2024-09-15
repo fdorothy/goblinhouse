@@ -17,6 +17,11 @@ VAR inserted_coins = false
 VAR found_body = false
 VAR dialed_taxi = false
 VAR dialed_police = false
+VAR julia_dead = false
+VAR router_hint = false
+VAR have_router = false
+VAR router_plugged_in = false
+VAR garda = false
 
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink

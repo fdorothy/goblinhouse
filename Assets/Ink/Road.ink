@@ -10,6 +10,7 @@
 # clickables: clear
 
  + [{ investigate("phone", "Phone") }] -> phone ->
+ + { garda } [{ investigate("investigator", "Investigator") }] -> investigator
  + [{ exit("cemetary", "Cemetary") }] -> cemetary("FromRoad")
  - -> options
 
@@ -95,6 +96,18 @@ He stares at you and laughs.
         The driver grunts, "you're insane, you know."
         He closes the door and drives off into the rain.
         You are alone again on the street.
+ -
+    -> scream ->
+    ->->
+
+= scream
+...
+"AAAAAAAAHHHHHH!"
+~ julia_dead = true
+You hear the scream of a woman coming from the house.
+After a moment, the night is silent again.
+You lay on the road, wondering what happened.
+ + [get up]
  - ->->
 
 = goblin1
@@ -110,3 +123,21 @@ A small figure stands atop it, and it yells out to you.
 The thing jumps down from atop the phone booth.
 It scurries away into the darkness.
 ->->
+
+= investigator
+"Good evening, you're James? The one who emailed us?"
+ + [yes]
+ -
+"Good. And that's the house over there where the murders occurred?"
+"We'll send in a crew."
+"Here, come with me. You're probably traumatized."
+"Sit in the back of the ambulance."
+...
+You sit in the back of the ambulance.
+Someone brings you a blanket, you wrap it around yourself.
+What happened to you? What happened here?
+What were those things you saw? The things that spoke to you.
+The things that Julia said killed everyone.
+You put those thoughts aside for now.
+You are safe.
+-> win

@@ -35,6 +35,14 @@ It is coming from the wall.
  - ->->
 
 = guestroom_door
+{ julia_dead:
+    -> guestroom("FromHallway")
+- else:
+    -> guestroom_door_julia_alive
+}
+->->
+
+= guestroom_door_julia_alive
 This is the other guest's room.
 I think her name is Julia.
 + [knock] KNOCK KNOCK
