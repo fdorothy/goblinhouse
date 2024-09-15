@@ -39,7 +39,7 @@ You hear a scratchy voice coming from the cabinets.
 
 = cabinets
 There are several boxes of mix in the cabinets.
-You can only take one of them at a time.
+You can only take one item at a time.
 
  + [cookie mix]
    { take("cookie mix") }
@@ -69,7 +69,7 @@ You can only take one of them at a time.
  
 = flashlight
 There are a few flashlights sitting on the table.
-You can only take one of item at a time.
+You can only take one item at a time.
 + [take a flashlight]
     You take a flashlight
     { take("flashlight") }
