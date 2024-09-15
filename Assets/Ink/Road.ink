@@ -1,6 +1,7 @@
 === road(_position) ===
 { update_location("Road", _position) }
 ~ music = "outdoor_theme"
+{ ! -> goblin1 -> }
 
 -> options
 
@@ -14,25 +15,31 @@
 
 = phone
 { sfx("door_open") }
-{ ! -> goblin1 -> }
 You pick up the receiver
-{ not inserted_coins: There is no dial tone }
-+ { coins } [insert coins]
+{ inserted_coins:
+    There is a dial tone
+- else:
+    There is no dial tone
+}
+-> phone_options
+
+= phone_options
+{ dialed_taxi and dialed_police: There's no one to call. }
+* { coins } [insert coins]
     ~ inserted_coins = true
     You insert coins
     You hear a dial tone from the receiver.
-    + + [dial police]
-        -> police ->
-    + + [dial taxi]
-        -> taxi ->
-+ { inserted_coins } [dial taxi]
+    -> phone_options ->
+* { inserted_coins } [dial taxi]
     -> taxi ->
-+ [dial police]
+* [dial police]
     -> police ->
 + [hang up]
+    You hang up the receiver.
 - ->->
 
 = police
+~ dialed_police = true
 You dial the police.
 You clear your throat, "hello, police? I'd like to report a murder."
 ...
@@ -46,6 +53,7 @@ You quickly hang up.
 
 = taxi
 You dial for a taxi.
+~ dialed_taxi = true
 ...
 The taxi arrives on the dark street.
 The driver stares ahead as you get into the car.
@@ -67,18 +75,38 @@ His skin is green.
 He stares at you and laughs.
 { sfx("laugh") }
 "Hah hah hah"
--> win
+ + [fight]
+    You punch the man in his face.
+    Blood splatters from his nose.
+    He screams at you "get out!"
+    + + [get out of car]
+        You unlock the car door and fall out onto the street.
+        You scrape your palms on the cold wet concrete.
+        The car revs its engine and peels away into the rain.
+        You are alone again on the street.
+ + [get out of car]
+    In a panic you unlock the car door and fall out onto the street.
+    "What's the matter with you?" the driver says in a scratchy voice.
+    + + ["get away from me!"]
+        The driver grunts and puts the car in drive.
+        He drives away into the rain.
+        You are alone again on the street.
+    + + ["help!"]
+        The driver grunts, "you're insane, you know."
+        He closes the door and drives off into the rain.
+        You are alone again on the street.
+ - ->->
 
 = goblin1
-You enter the phone booth.
+You walk out onto the road.
+You see a phone booth down the street.
 { sfx("laugh") }
-You hear the scratchy voice from above.
-Something is on top of the phone booth.
+A small figure stands atop it, and it yells out to you.
 "Ah, running away are we?
 "Scared of the consequences of your actions?"
 "Murderer, murderer, murderer"
 { sfx("laugh") }
 "Hah hah hah"
-Something jumps down from atop the phone booth.
+The thing jumps down from atop the phone booth.
 It scurries away into the darkness.
 ->->

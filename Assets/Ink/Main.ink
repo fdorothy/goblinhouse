@@ -15,6 +15,8 @@ VAR holding = ""
 VAR investigated_laptop = false
 VAR inserted_coins = false
 VAR found_body = false
+VAR dialed_taxi = false
+VAR dialed_police = false
 
 INCLUDE Bedroom.ink
 INCLUDE Hallway.ink
