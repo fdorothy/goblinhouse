@@ -2,6 +2,7 @@
 { update_location("Cemetary", _position) }
 ~ music = "outdoor_theme"
 { ! -> goblin1 -> }
+{ dialed_taxi and not julia_dead: -> scream -> }
 -> options
 
 = options
@@ -24,6 +25,14 @@ Its long face turns to look at you as it slowly raises a knife in the air.
 Suddenly in a flash of lightning, the shape is gone.
 The cemetary is yours to explore.
 ->->
+
+= scream
+"AAAAAAAAHHHHHH!"
+~ julia_dead = true
+You hear the scream of a woman coming from the house.
+After a moment, the night is silent again.
+You stand in the cemetary, wondering what happened.
+ - ->->
 
 = investigate_dirt
 { holding == "shovel":

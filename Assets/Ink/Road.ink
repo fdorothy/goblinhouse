@@ -101,18 +101,7 @@ He stares at you and laughs.
         He closes the door and drives off into the rain.
         You are alone again on the street.
  -
-    -> scream ->
     ->->
-
-= scream
-...
-"AAAAAAAAHHHHHH!"
-~ julia_dead = true
-You hear the scream of a woman coming from the house.
-After a moment, the night is silent again.
-You lay on the road, wondering what happened.
- + [get up]
- - ->->
 
 = goblin1
 You walk out onto the road.

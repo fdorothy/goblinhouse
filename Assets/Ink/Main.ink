@@ -15,7 +15,7 @@ VAR holding = ""
 VAR investigated_laptop = false
 VAR inserted_coins = false
 VAR found_body = false
-VAR dialed_taxi = false
+VAR dialed_taxi = true
 VAR dialed_police = false
 VAR julia_dead = false
 VAR router_hint = false
@@ -39,6 +39,7 @@ INCLUDE Garden.ink
 <- intro
 
 === intro ===
+-> cemetary("FromStart")
 { ! GOBLINS IN THE WALLS }
 ~ music = "title_theme"
  + [START]
