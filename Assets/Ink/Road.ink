@@ -122,6 +122,8 @@ It scurries away into the darkness.
  + [yes]
  -
 "Good. And that's the house over there where the murders occurred?"
+ + [yes sir]
+ -
 "We'll send in a crew."
 "Here, come with me. You're probably traumatized."
 "Sit in the back of the ambulance."

@@ -31,14 +31,22 @@
     "This is horrible, we've got to call the police."
     "I'm getting no reception"
     "But I think there's a pay phone outside."
- + [leave] ->->
+ + [leave]
  - ->->
  
 = julia_ghost
+{ ! Julia's body lays on the floor." }
+{ ! Her throat is slit open." }
+{ ! A ghostly apparition appears above her." }
 "Hello again, James."
 { ! "I remembered your name this time." }
 { ! "I can remember a lot of things." }
- + [what is happening]
+ - (opts)
+ * [what happened to you?]
+    "I seemed to have died, James."
+    "The...things. They came. They had knives, James."
+    "I couldn't fend them off."
+ * [what is happening]
     "Many things have happened, James."
     "They are using you to kill the ones around you."
     "You've got to get out of here, somehow."
@@ -50,7 +58,8 @@
     "..."
     ~ router_hint = true
  + [leave]
- - ->->
+    ->->
+ - -> opts
 
 = clothes
 { rainboots: You've already taken the raincoat. }
