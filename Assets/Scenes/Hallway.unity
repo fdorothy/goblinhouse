@@ -682,10 +682,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 227341144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customTitle: downstairs
+  customTitle: 
 --- !u!64 &227341147
 MeshCollider:
   m_ObjectHideFlags: 0

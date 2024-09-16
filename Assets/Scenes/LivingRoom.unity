@@ -1296,7 +1296,8 @@ PrefabInstance:
       propertyPath: inkPath
       value: livingroom_masterdoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6972934747780583499, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
 --- !u!4 &663897875 stripped
 Transform:
@@ -1304,6 +1305,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 663897874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &663897876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
+    type: 3}
+  m_PrefabInstance: {fileID: 663897874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &663897877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663897876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTitle: 
 --- !u!1001 &664287278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2186,7 +2206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 973438371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: 
@@ -2948,7 +2968,8 @@ PrefabInstance:
       propertyPath: inkPath
       value: livingroom_frontdoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6972934747780583499, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
 --- !u!4 &1293688144 stripped
 Transform:
@@ -2956,6 +2977,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1293688143}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1293688145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
+    type: 3}
+  m_PrefabInstance: {fileID: 1293688143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1293688146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293688145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTitle: 
 --- !u!1 &1299040044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,7 +3400,8 @@ PrefabInstance:
       propertyPath: inkPath
       value: livingroom_kitchendoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6972934747780583499, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc321bc65eaed65419913e02de0a2f31, type: 3}
 --- !u!4 &1461299391 stripped
 Transform:
@@ -3368,6 +3409,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1461299390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1461299392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 887004936322924168, guid: dc321bc65eaed65419913e02de0a2f31,
+    type: 3}
+  m_PrefabInstance: {fileID: 1461299390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1461299393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461299392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTitle: 
 --- !u!1 &1516886161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4092,7 +4152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700178640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981817af829b1834eb2d1e289c946b07, type: 3}
+  m_Script: {fileID: 11500000, guid: 253d3d3486a9f8c49b2ccf6a17457b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   customTitle: 
