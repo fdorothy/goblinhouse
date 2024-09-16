@@ -6,6 +6,7 @@
 }
 ~ music = "outdoor_theme"
 { ! -> goblin1 -> }
+{ garda: { ! -> goblin2 -> } }
 
 -> options
 
@@ -117,6 +118,14 @@ A small figure stands atop it, and it yells out to you.
 "Hah hah hah"
 The thing jumps down from atop the phone booth.
 It scurries away into the darkness.
+->->
+
+= goblin2
+...
+You hear the voice once more.
+"NO! How can you do this to us!?"
+"We trusted you!"
+"..."
 ->->
 
 = investigator

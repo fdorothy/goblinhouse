@@ -2,6 +2,7 @@
 { update_location("Hallway", _position) }
 ~ music = "house_theme"
 { ! -> goblin1 -> }
+{ garda: { ! -> goblin2 -> } }
 -> options
 
 = options
@@ -33,6 +34,15 @@ It is coming from the wall.
     You stand your ground, and the laughing fades.
     Was that real, or are you still dreaming?
  - ->->
+
+= goblin2
+...
+You hear the shrill voice once again.
+It sounds angry.
+"You won't be wanting to leave us, would you?"
+"We were having so much fun together."
+"..."
+->->
 
 = guestroom_door
 { julia_dead:

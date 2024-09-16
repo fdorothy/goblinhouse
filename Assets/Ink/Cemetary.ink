@@ -3,6 +3,7 @@
 ~ music = "outdoor_theme"
 { ! -> goblin1 -> }
 { dialed_taxi and not julia_dead: -> scream -> }
+{ garda: { ! -> goblin2 -> } }
 -> options
 
 = options
@@ -24,6 +25,14 @@ You see a shape standing amongst the cemetary stones.
 Its long face turns to look at you as it slowly raises a knife in the air.
 Suddenly in a flash of lightning, the shape is gone.
 The cemetary is yours to explore.
+->->
+
+= goblin2
+You hear the shrill voice again coming from the house behind you.
+The voice sounds scared.
+"Where do you think you're going!?"
+"Come back! We can talk this through!"
+"..."
 ->->
 
 = scream
