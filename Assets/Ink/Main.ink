@@ -80,7 +80,7 @@ YOU DIED
 -> DONE
 
 === win ===
-THE END
+YOU WIN
 :scene Death Anywhere
 -> DONE
 

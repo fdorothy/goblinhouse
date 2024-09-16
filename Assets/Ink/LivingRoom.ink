@@ -11,7 +11,8 @@
 
 # clickables: clear
 
- + [{ investigate("router", "Wires") }] -> wires ->
+ + { not router_plugged_in } [{ investigate("router", "Wires") }] -> wires ->
+ + { router_plugged_in } [{ investigate("router", "Router") }] -> wires ->
  + [{ investigate("cat", "Cat") }] -> cat ->
  + [{ investigate("radio", "An Old Radio") }] -> radio ->
  + [{ exit("kitchendoor", "Kitchen") }]
