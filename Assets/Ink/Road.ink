@@ -60,6 +60,7 @@ You quickly hang up.
 You dial for a taxi.
 ~ dialed_taxi = true
 ...
+{ update_location("Blackout", "Start") }
 The taxi arrives on the dark street.
 The driver stares ahead as you get into the car.
 Where do you want to tell the driver to go?
@@ -101,6 +102,7 @@ He stares at you and laughs.
         He closes the door and drives off into the rain.
         You are alone again on the street.
  -
+    { update_location("Road", "FromTaxi") }
     ->->
 
 = goblin1

@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Road2.unity
     guid: 84bb8401c9590874e856cbfe6b65d744
+  - enabled: 1
+    path: Assets/Scenes/Blackout.unity
+    guid: fc960804e3b9cf448a343af37f759366
   m_configObjects: {}
