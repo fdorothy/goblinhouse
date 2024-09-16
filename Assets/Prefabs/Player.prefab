@@ -150,6 +150,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   flipbook: {fileID: 8603352694711145619}
   forward: {x: 0, y: 0, z: 0}
+  audioSource: {fileID: 0}
+  footStepSounds: []
 --- !u!1 &8603352694711145631
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc,
+  m_Sprite: {fileID: 3544689720090723655, guid: a39fb815c4e6d294798ac52d2c6a248c,
     type: 3}
   m_Color: {r: 0.48794055, g: 0.5464701, b: 0.8018868, a: 1}
   m_FlipX: 1
@@ -275,24 +277,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   northIdle:
-  - {fileID: -6073305170758790773, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 1363803732178552030, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   eastIdle:
-  - {fileID: 8920890581455152053, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 5336191331560377636, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   southIdle:
-  - {fileID: -8685761280882076349, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 3544689720090723655, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   westIdle:
-  - {fileID: 2098671052308492714, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 7527367908956681902, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   northWalk:
-  - {fileID: 2614423652114015647, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  - {fileID: -398742242201625872, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 7047303457610331633, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
+  - {fileID: -6356453491732265433, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   eastWalk:
-  - {fileID: 7792622208620131357, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  - {fileID: -1102851626724033262, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 3970997363048025416, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
+  - {fileID: -2979856227989161008, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   southWalk:
-  - {fileID: -5698233408492342923, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  - {fileID: 3720753464592173724, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: 3173329223550860577, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
+  - {fileID: -6042911249109091278, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   westWalk:
-  - {fileID: 7927900748212217308, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
-  - {fileID: 4481936179573616239, guid: bab0b57d225fdf34593d8883def8d6fc, type: 3}
+  - {fileID: -6449880836263979678, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
+  - {fileID: 1592675724984545247, guid: a39fb815c4e6d294798ac52d2c6a248c, type: 3}
   facing: 2
   walking: 0
