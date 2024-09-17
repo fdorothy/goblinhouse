@@ -11,6 +11,8 @@
 # clickables: clear
 
  + [{ investigate("dirt", "Dirt") }] -> investigate_dirt ->
+ + [{ investigate("dirt_false", "Dirt") }] -> investigate_dirt_false ->
+ + [{ investigate("dirt_false2", "Dirt") }] -> investigate_dirt_false ->
  + [{ exit("door", "House") }]
     { sfx("door_open") }
     -> livingroom("FromOutside")
@@ -51,6 +53,14 @@ You stand in the cemetary, wondering what happened.
  }
  ->->
  
+= investigate_dirt_false
+{ holding == "shovel":
+    -> find_coffin_false ->
+ - else:
+    -> find_nothing_in_dirt ->
+ }
+ ->->
+ 
  = find_nothing_in_dirt
     You claw through the dirt.
     You are panting, there is too much dirt for your bare hands.
@@ -74,6 +84,20 @@ You strike something hard.
             You take the coins and put them in your pocket.
             ~ coins = true
         + + + [stop]
+    + + [stop]
++ [stop]
+- ->->
+
+ = find_coffin_false
+{ ! You dig for a while with the shovel. }
+You strike something hard.
++ [keep digging]
+    You keep on digging.
+    The outline of a coffin is visible.
+    + + [open coffin]
+        You open the coffin.
+        A recently deceased man lays here.
+        + [stop]
     + + [stop]
 + [stop]
 - ->->
