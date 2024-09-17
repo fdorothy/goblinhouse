@@ -97,7 +97,7 @@ You strike something hard.
     + + [open coffin]
         You open the coffin.
         A recently deceased man lays here.
-        + [stop]
+        + + + [stop]
     + + [stop]
 + [stop]
 - ->->
