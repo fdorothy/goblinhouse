@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Vector3 forward;
     public AudioSource audioSource;
     public List<AudioClip> footStepSounds;
+    public Transform flashlight;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
             forward = agent.velocity.normalized;
         }
         flipbook.CalculateFacing(forward);
+        flashlight.transform.LookAt(transform.position + forward + Vector3.up * 2.3f);
         if (agent.hasPath)
         {
             flipbook.walking = true;

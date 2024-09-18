@@ -717,6 +717,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &1774611871 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3529347141266797740, guid: d1988f232c34a3345a845fc1ecf5915a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8603352693080566313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827074047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1042,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8603352694425991345, guid: d1988f232c34a3345a845fc1ecf5915a,
+        type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 1774611871}
     - target: {fileID: 8603352694425991345, guid: d1988f232c34a3345a845fc1ecf5915a,
         type: 3}
       propertyPath: audioSource
