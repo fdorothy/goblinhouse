@@ -1580,6 +1580,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8675255067706467509, guid: 63c625bf15fb8f84db5ddd69e41ca20a,
+        type: 3}
+      propertyPath: m_Text
+      value: DOOR
+      objectReference: {fileID: 0}
     - target: {fileID: 8675255067706467510, guid: 63c625bf15fb8f84db5ddd69e41ca20a,
         type: 3}
       propertyPath: m_AnchorMax.y

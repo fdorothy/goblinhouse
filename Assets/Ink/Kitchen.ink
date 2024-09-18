@@ -52,7 +52,7 @@ You can only take one item at a time.
 = oven
 { ! Odd, the oven is already preheated to just the right temperature for baking. }
  + { holding == "cookie mix" || holding == "brownie mix" || holding == "pumpkin cake mix" } [bake { holding }]
-    You mix up and bake the { holding }.
+    You mix up and bake the { obj(holding) }.
     ...
     { holding == "cookie mix":
       ~ holding = "cookies"
@@ -63,7 +63,7 @@ You can only take one item at a time.
     { holding == "pumpkin cake mix": 
       ~ holding = "pumpkin cake"
     }
-    They're done. You let the { holding } cool down and take them out of the oven.
+    They're done. You let the { obj(holding) } cool down and take them out of the oven.
 + [leave]
  - ->->
  

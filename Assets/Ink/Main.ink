@@ -39,7 +39,7 @@ INCLUDE Garden.ink
 <- intro
 
 === intro ===
-{ ! GOBLINS IN THE WALLS }
+{ ! <b><size=24><color=red>GOBLINS IN THE WALLS</color></size></b> }
 ~ music = "title_theme"
  + [START]
     -> start
@@ -71,7 +71,7 @@ Small monsters, hell bent on murder.
     You are drenched in sweat.
     As you stare at the ceiling, you remember you're on vacation.
     You are unsure what time it is, but the storm outside makes it hard to sleep.
-    You wonder if the tour will be canceled. Better check the laptop.
+    You wonder if the tour will be canceled. Better check the { obj("laptop") }.
     + + [get up] -> bedroom("FromStart")
 
 === gameover ===
@@ -83,6 +83,9 @@ YOU DIED
 THE END
 :scene Death Anywhere
 -> DONE
+
+== function obj(text)
+<b>{text}</b>
 
 == function update_location(_scene, _position)
 

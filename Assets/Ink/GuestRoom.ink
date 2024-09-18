@@ -43,20 +43,24 @@
 { ! "I can remember a lot of things." }
  - (opts)
  * [what happened to you?]
-    "I seemed to have died, James."
+    "I seem to have died, James."
     "The...things. They came. They had knives, James."
     "I couldn't fend them off."
  * [what is happening]
     "Many things have happened, James."
     "They are using you to kill the ones around you."
     "You've got to get out of here, somehow."
- + [how do I get out]
-    "The router...it's the only way of communication left."
+ + { not router_plugged_in } [how do I get out]
+    "The {obj("router")}...it's the only way of communication left."
     "They ripped it out of the wall and hid it from us."
     "It is somewhere...I can smell the spot vividly."
     "I can smell the fragrance about it."
+    "It smells like {obj("rosemary")}."
     "..."
     ~ router_hint = true
+ + { router_plugged_in } [now what] 
+    "Use your laptop, James."
+    "Use it to leave this place."
  + [leave]
     ->->
  - -> opts
@@ -67,7 +71,7 @@
 ->->
 
 = see_rainboots
-Julia's rain coat is on the floor here.
+Julia's raincoat is on the floor here.
  + [put on raincoat]
     You put the raincoat on.
     ~ rainboots = true

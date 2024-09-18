@@ -58,7 +58,13 @@ I think her name is Julia.
 + [knock] KNOCK KNOCK
     ...
     The door cracks opens, and Julia peeks out.
-    "I'm hungry. Got anything to eat out there? I like cookies."
+    { holding == "machete":
+        "What is that you're holding!?"
+        "It's...covered in blood!"
+        Julia slams the door and locks it.
+        ->->
+    }
+    "I'm hungry. Got anything to eat out there? I like {obj("cookies")}."
     + + [yes]
         { holding == "cookies":
             { sfx("door_open") }
